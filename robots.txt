@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://bigmoneychina.tech/sitemap.xml
+Host: https://bigmoneychina.tech
