@@ -2,3 +2,10 @@ User-agent: *
 Allow: /
 Sitemap: https://bigmoneychina.tech/sitemap.xml
 Host: https://bigmoneychina.tech
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+Host: https://bigmoneychina.tech

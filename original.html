@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бизнес с Китаем — Онлайн-форум 2026 | Биохакинг & Технологии</title>
+<meta name="description" content="3 дня, 10+ спикеров, призы каждый день. Онлайн-форум о бизнесе с Китаем и технологиях здоровья. 21–23 апреля 2026. Билет 501₽.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cloud: #FFFFFF;
+  --cloud-warm: #F8FAFC;
+  --cloud-card: #FFFFFF;
+  --teal: #00B4DB;
+  --teal-deep: #0083B0;
+  --teal-light: #4DD0E1;
+  --teal-pale: rgba(0, 180, 219, 0.08);
+  --violet: #5C258D;
+  --violet-deep: #2A1045;
+  --terra: #00E676; 
+  --terra-light: #69F0AE;
+  --coffee-dark: #0F172A;
+  --coffee: #1E293B;
+  --coffee-mid: #475569;
+  --coffee-light: #94A3B8;
+  
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 100px;
+  
+  --font-main: 'Plus Jakarta Sans', system-ui, sans-serif;
+  
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  --border-color: rgba(148, 163, 184, 0.2);
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--font-main);background:var(--cloud);color:var(--coffee-dark);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
+::selection{background:var(--teal);color:#fff}
+img{max-width:100%;display:block}
+
+/* ICONS & ANIMATIONS */
+.ico{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:var(--radius-sm);background:var(--teal-pale);flex-shrink:0;transition:.3s}
+.ico svg{width:22px;height:22px;stroke:var(--teal);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ico-v{background:rgba(92, 37, 141, 0.05)}.ico-v svg{stroke:var(--violet)}
+.ico-sm{width:28px;height:28px;border-radius:8px}.ico-sm svg{width:14px;height:14px}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float-cell{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(20px,-30px) scale(1.05)}66%{transform:translate(-20px,20px) scale(0.95)}}
+@keyframes scroll-y{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+@keyframes scroll-x{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes pulse-light{0%,100%{opacity:0.6}50%{opacity:1}}
+
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:all .8s cubic-bezier(0.16,1,0.3,1)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+
+/* LIGHT HERO BACKGROUND */
+.hero-wrapper {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #F8FAFC 0%, #E0F2FE 100%);
+  overflow: hidden;
+  padding-top: 80px;
+  z-index: 1;
+}
+.hero-glow-1 { position: absolute; top: -10%; left: -10%; width: 600px; height: 600px; background: rgba(0, 180, 219, 0.15); border-radius: 50%; filter: blur(100px); z-index: 0; animation: float-cell 15s infinite; }
+.hero-glow-2 { position: absolute; bottom: -10%; right: -10%; width: 500px; height: 500px; background: rgba(0, 230, 118, 0.1); border-radius: 50%; filter: blur(100px); z-index: 0; animation: float-cell 18s infinite reverse; }
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.5);transition:.4s}
+.nav.scrolled{height:60px;background:rgba(255,255,255,.95);box-shadow:var(--shadow-sm);border-bottom:1px solid var(--border-color)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1.1rem;color:var(--coffee-dark);letter-spacing:-0.02em}
+.nav-logo img{width:36px;height:36px;border-radius:8px;object-fit:contain}
+.nav-links{display:flex;align-items:center;gap:16px;list-style:none}
+.nav-links a.nl{font-size:.85rem;font-weight:600;color:var(--coffee-mid);text-decoration:none;padding:8px 16px;border-radius:var(--radius-full);transition:.3s}
+.nav-links a.nl:hover{color:var(--teal-deep);background:var(--teal-pale)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:var(--coffee-dark);border-radius:2px;transition:.4s}
+
+/* CLEAN GRADIENT BUTTONS */
+.btn-primary {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 16px 36px; border-radius: var(--radius-full); text-decoration: none; font-weight: 700; font-size: 0.95rem;
+  color: #fff; background: linear-gradient(135deg, var(--teal-deep), var(--teal-light));
+  box-shadow: 0 10px 25px rgba(0, 180, 219, 0.3); transition: all 0.3s ease; border: none; overflow: hidden; z-index: 1;
+}
+.btn-primary::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, var(--violet), var(--teal-deep)); opacity: 0; transition: opacity 0.3s ease; z-index: -1;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0, 180, 219, 0.4); }
+.btn-primary:hover::before { opacity: 1; }
+.btn-nav { padding: 10px 24px; font-size: 0.85rem; }
+
+/* HERO CONTENT */
+.hero-content { position: relative; z-index: 10; width: 100%; max-width: 900px; padding: 40px 24px 60px; text-align: center; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px; background: #fff; border: 1px solid var(--border-color);
+  border-radius: 100px; font-size: 0.8rem; font-weight: 700; color: var(--teal-deep); margin-bottom: 24px; box-shadow: var(--shadow-sm);
+  animation: fadeUp 0.8s forwards;
+}
+.hero-badge .dot { width: 8px; height: 8px; background: var(--terra); border-radius: 50%; box-shadow: 0 0 10px var(--terra); animation: pulse-light 2s infinite; }
+
+.hero-title { font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--coffee-dark); margin-bottom: 16px; animation: fadeUp 0.8s 0.1s forwards; opacity: 0; }
+.hero-title .gr { background: linear-gradient(135deg, var(--teal-deep), var(--violet)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-sub { font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--coffee-mid); font-weight: 500; max-width: 600px; margin: 0 auto 32px; line-height: 1.6; animation: fadeUp 0.8s 0.2s forwards; opacity: 0; }
+
+/* LIGHT COUNTERS */
+.cdw-light {
+  display: flex; flex-direction: column; align-items: center; margin-bottom: 32px; background: #fff; border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg); padding: 24px; max-width: 500px; margin-left: auto; margin-right: auto; box-shadow: var(--shadow-md);
+  animation: fadeUp 0.8s 0.3s forwards; opacity: 0;
+}
+.cdl-light { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--coffee-mid); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.cdr-light { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.cdb-light { background: var(--cloud-warm); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 14px 12px; min-width: 76px; text-align: center; }
+.cdn-light { font-size: 2.2rem; font-weight: 800; color: var(--coffee-dark); line-height: 1; }
+.cdu-light { font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--coffee-mid); margin-top: 6px; }
+.cds-light { font-size: 1.5rem; font-weight: 700; color: var(--coffee-light); opacity: .6; }
+
+.sw-light { margin-bottom: 36px; animation: fadeUp 0.8s 0.4s forwards; opacity: 0; }
+.sb-light { max-width: 400px; margin: 0 auto; }
+.sh-light { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: .85rem; font-weight: 700; color: var(--coffee-dark); }
+.sh-light .r { color: var(--teal-deep); }
+.sbar-light { width: 100%; height: 8px; background: rgba(0,0,0,0.05); border-radius: 4px; overflow: hidden; }
+.sfill-light { height: 100%; background: linear-gradient(90deg, var(--teal-light), var(--teal-deep)); border-radius: 4px; transition: width 1.5s ease; width: 0%; }
+.sf-light { display: flex; justify-content: space-between; margin-top: 10px; color: var(--coffee-mid); font-size: .8rem; font-weight: 500; }
+.sf-light .b { font-weight: 800; color: var(--coffee-dark); }
+
+.cg-new { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.8s 0.5s forwards; opacity: 0; }
+.bo-glass { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; background: transparent; color: var(--coffee-dark); font-weight: 700; text-decoration: none; border: 2px solid var(--border-color); border-radius: var(--radius-full); transition: .3s; font-size: 0.95rem; }
+.bo-glass:hover { border-color: var(--teal-deep); background: var(--cloud-warm); transform: translateY(-2px); }
+
+/* SECTIONS COMMON */
+.sec-h{text-align:center;margin-bottom:48px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:var(--cloud-card);border:1px solid var(--border-color);border-radius:var(--radius-full);font-size:.75rem;font-weight:800;color:var(--teal-deep);letter-spacing:.05em;text-transform:uppercase;margin-bottom:16px;box-shadow:var(--shadow-sm)}
+.st{font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:var(--coffee-dark);line-height:1.2;letter-spacing:-.02em}
+.ss{font-size:1rem;color:var(--coffee-mid);margin-top:14px;line-height:1.6;max-width:600px;margin-left:auto;margin-right:auto;font-weight:500;}
+
+/* TRUST */
+.trust{padding:60px 32px;background:var(--cloud-card);z-index:1;position:relative}
+.trust-img{width:100%;max-width:1000px;margin:0 auto 32px;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg)}
+.trust-items{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;max-width:960px;margin:0 auto}
+.ti{display:flex;align-items:center;gap:12px;background:var(--cloud-warm);padding:16px 24px;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:1px solid var(--border-color)}
+.tn{font-size:1.6rem;font-weight:900;color:var(--coffee-dark)}
+.tt{font-size:.85rem;color:var(--coffee-mid);font-weight:600;text-align:left;line-height:1.3}
+
+/* AUDIENCE */
+.aud{padding:100px 32px;background:var(--cloud-warm);position:relative;z-index:1}
+.aug{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1080px;margin:0 auto}
+.auc{background:#fff;border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:32px 24px;transition:.4s;box-shadow:var(--shadow-sm)}
+.auc:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--teal-light)}
+.auc .ico{margin-bottom:20px}
+.auc h4{font-size:1.15rem;font-weight:800;color:var(--coffee-dark);margin-bottom:10px}
+.auc p{font-size:.9rem;line-height:1.6;color:var(--coffee-mid)}
+
+/* HOOK */
+.hook{padding:100px 32px;background:linear-gradient(135deg, var(--coffee-dark), var(--coffee));position:relative;overflow:hidden;text-align:center;z-index:1}
+.hook-inner{position:relative;z-index:2;max-width:800px;margin:0 auto}
+.hq{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:#fff;line-height:1.4;margin-bottom:48px}
+.hq .hl-t{color:var(--terra-light);}
+.hstats{display:flex;justify-content:center;gap:60px;flex-wrap:wrap}
+.hstat{text-align:center;min-width:140px}
+.hn{font-size:3.5rem;font-weight:900;color:var(--teal-light);line-height:1;margin-bottom:8px}
+.hu{font-size:.8rem;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.05em;text-transform:uppercase}
+
+/* ACCORDION (PROGRAM) */
+.prog{padding:100px 32px;background:var(--cloud);position:relative;z-index:1}
+.acc-wrapper { max-width: 1000px; margin: 0 auto 60px auto; }
+.acc-container { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 16px; height: 400px; }
+.acc-item { position: relative; height: 100%; border-radius: var(--radius-xl); overflow: hidden; cursor: pointer; transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); width: 80px; box-shadow: var(--shadow-md); background: var(--coffee-dark); }
+.acc-item.active { width: 600px; box-shadow: var(--shadow-lg); }
+.acc-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; opacity: 0.5; }
+.acc-item.active .acc-img { opacity: 1; }
+.acc-item:hover .acc-img { transform: scale(1.05); }
+.acc-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%); pointer-events: none; }
+.acc-content { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%) rotate(-90deg); transform-origin: center bottom; transition: all 0.4s ease; white-space: nowrap; display: flex; flex-direction: column; align-items: center; opacity: 0.7; }
+.acc-item.active .acc-content { transform: translateX(-50%) rotate(0deg); bottom: 40px; opacity: 1; width: 90%; }
+.acc-day { font-size: 1.2rem; font-weight: 800; color: var(--teal-light); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.1em; }
+.acc-title { font-size: 1.2rem; font-weight: 800; color: #fff; opacity: 0; transition: opacity 0.3s; }
+.acc-item.active .acc-title { font-size: 2rem; white-space: normal; text-align: center; line-height: 1.2; opacity: 1; transition-delay: 0.2s; }
+
+.pcards{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.pcard{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:start;padding:32px;background:#fff;border:1px solid var(--border-color);border-radius:var(--radius-xl);transition:.4s;box-shadow:var(--shadow-sm)}
+.pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--teal-light)}
+.pbadge{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:85px}
+.pday{font-size:2.8rem;font-weight:900;line-height:1;color:var(--teal-deep)}
+.pdate{font-size:.8rem;font-weight:700;color:var(--coffee-light)}
+.pcont h3{font-size:1.35rem;font-weight:800;color:var(--coffee-dark);margin-bottom:8px}
+.pcont p{font-size:.95rem;line-height:1.6;color:var(--coffee-mid);margin-bottom:16px}
+.ptopics{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;padding-left:4px}
+.ptopic{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;color:var(--coffee-dark);line-height:1.5;font-weight:500}
+.ptopic::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--teal-light);flex-shrink:0;margin-top:6px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{padding:6px 14px;background:var(--cloud-warm);border:1px solid var(--border-color);border-radius:var(--radius-full);font-size:.75rem;font-weight:700;color:var(--coffee-mid)}
+
+/* PRIZES */
+.prizes{padding:100px 32px;background:var(--cloud-warm);position:relative;z-index:1}
+.prizes-img{max-width:800px;margin:0 auto 48px;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg)}
+.prizes-flow{display:flex;flex-direction:column;gap:0;max-width:800px;margin:0 auto;position:relative}
+.prizes-flow::before{content:'';position:absolute;left:31px;top:32px;bottom:32px;width:2px;background:var(--border-color);border-radius:1px;z-index:0}
+.pf-item{display:flex;gap:24px;align-items:flex-start;position:relative;z-index:1;padding:20px 0}
+.pf-dot{width:64px;height:64px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:2px solid var(--teal-light);background:#fff;box-shadow:var(--shadow-sm);transition:.4s}
+.pf-item:hover .pf-dot{transform:scale(1.1);background:var(--teal-pale)}
+.pf-body{flex:1;padding-top:6px}
+.pf-day{font-size:.75rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px;color:var(--teal-deep)}
+.pf-title{font-size:1.25rem;font-weight:800;color:var(--coffee-dark);margin-bottom:8px}
+.pf-desc{font-size:.95rem;color:var(--coffee-mid);line-height:1.6}
+.pf-guide{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:8px 16px;background:#fff;border:1px solid var(--border-color);border-radius:var(--radius-full);font-size:.8rem;font-weight:700;color:var(--teal-deep)}
+
+/* SPEAKER CAROUSEL (CLEAN) */
+.spk-sec { padding: 100px 32px; background: var(--cloud); overflow: hidden; position: relative; z-index: 1; }
+.fc-wrapper { max-width: 1200px; margin: 0 auto; border-radius: var(--radius-xl); overflow: hidden; display: flex; flex-direction: row; min-height: 600px; border: 1px solid var(--border-color); background: #fff; box-shadow: var(--shadow-lg); }
+.fc-left { width: 40%; position: relative; background: linear-gradient(135deg, var(--teal-deep), var(--violet-deep)); display: flex; align-items: center; padding-left: 40px; overflow: hidden; z-index: 5; }
+.fc-fade-t { position: absolute; top: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, var(--teal-deep), transparent); z-index: 10; pointer-events: none; }
+.fc-fade-b { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to top, var(--violet-deep), transparent); z-index: 10; pointer-events: none; }
+.fc-list-container { position: relative; width: 100%; height: 100%; display: flex; align-items: center; }
+.fc-btn { position: absolute; display: flex; align-items: center; gap: 16px; padding: 16px 28px; border-radius: var(--radius-full); border: 1px solid rgba(255,255,255,0.1); background: transparent; color: rgba(255,255,255,0.6); transition: all 0.5s; cursor: pointer; text-align: left; width: max-content; z-index: 2; }
+.fc-btn.active { background: #fff; color: var(--coffee-dark); z-index: 5; border-color: #fff; box-shadow: var(--shadow-md); }
+.fc-btn:hover:not(.active) { background: rgba(255,255,255,0.1); color: #fff; }
+.fc-btn-num { font-weight: 800; font-size: 1rem; opacity: 0.5; }
+.fc-btn.active .fc-btn-num { opacity: 1; color: var(--teal-deep); }
+.fc-btn-text { font-size: 0.95rem; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; }
+
+.fc-right { flex: 1; position: relative; background: var(--cloud-warm); overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 40px; z-index: 1; }
+.fc-img-card { position: absolute; inset: 40px; border-radius: var(--radius-xl); overflow: hidden; border: 8px solid #fff; background: #fff; transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); box-shadow: var(--shadow-lg); pointer-events: none; opacity: 0; transform: translateX(60px) scale(0.9); }
+.fc-img-card img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.fc-img-card.active { transform: translateX(0) scale(1); opacity: 1; z-index: 20; pointer-events: auto; }
+.fc-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 60px 40px 40px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); color: #fff; opacity: 0; transform: translateY(20px); transition: all 0.4s 0.2s; }
+.fc-img-card.active .fc-info { opacity: 1; transform: translateY(0); }
+.fc-tag { display: inline-block; background: #fff; color: var(--coffee-dark); padding: 8px 16px; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 16px; box-shadow: var(--shadow-sm); }
+.fc-name { font-size: 2.2rem; font-weight: 900; line-height: 1.1; margin-bottom: 8px; }
+.fc-role { font-size: 1.1rem; color: rgba(255,255,255,0.9); font-weight: 500; }
+
+/* REVIEWS - VERTICAL SCROLL */
+.rev-v2 { padding: 100px 32px; background: var(--cloud-warm); position: relative; z-index: 1; }
+.rev-mask { max-height: 700px; overflow: hidden; mask-image: linear-gradient(to bottom, transparent, black 5%, black 95%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 5%, black 95%, transparent); max-width: 1140px; margin: 0 auto; }
+.rev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+.rev-col { display: flex; flex-direction: column; gap: 24px; }
+.rev-track { display: flex; flex-direction: column; gap: 24px; animation: scroll-y linear infinite; padding-bottom: 24px; }
+.tr-1 { animation-duration: 40s; } .tr-2 { animation-duration: 50s; } .tr-3 { animation-duration: 45s; }
+.rev-track:hover { animation-play-state: paused; }
+.rc-card { padding: 32px; background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-xl); box-shadow: var(--shadow-sm); transition: .3s; }
+.rc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--teal-light); }
+.rc-text { color: var(--coffee-dark); font-size: 0.95rem; line-height: 1.6; font-style: italic; font-weight: 500; margin-bottom: 24px; }
+.rc-user { display: flex; align-items: center; gap: 16px; }
+.rc-avatar { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--cloud-warm); }
+.rc-name { font-size: 1.05rem; font-weight: 800; color: var(--coffee-dark); }
+.rc-role { font-size: 0.85rem; color: var(--coffee-mid); font-weight: 600; }
+
+/* FAQ */
+.faq{padding:100px 32px;background:var(--cloud);position:relative;z-index:1}
+.faq-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1080px;margin:0 auto;align-items:start}
+.faq-img{border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg)}
+.faq-list{display:flex;flex-direction:column;gap:12px}
+.fi{background:#fff;border:1px solid var(--border-color);border-radius:var(--radius-md);overflow:hidden;transition:.3s;box-shadow:var(--shadow-sm)}
+.fi:hover{border-color:var(--teal-light)}
+.fq{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;font-size:1rem;font-weight:700;color:var(--coffee-dark);gap:12px;user-select:none;transition:.2s}
+.fq:hover{color:var(--teal-deep)}
+.farr{width:20px;height:20px;stroke:var(--coffee-mid);stroke-width:2.5;fill:none;transition:.3s;flex-shrink:0}
+.fi.open .farr{transform:rotate(180deg);stroke:var(--teal-deep)}
+.fa{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.fa-inner{padding:0 24px 24px;font-size:.95rem;line-height:1.6;color:var(--coffee-mid)}
+
+/* FINAL CTA */
+.final{padding:120px 32px;background:var(--cloud-warm);text-align:center;position:relative;overflow:hidden;z-index:1}
+.final-inner{position:relative;z-index:2;max-width:640px;margin:0 auto}
+.final-text{font-size:1.05rem;line-height:1.7;color:var(--coffee-mid);margin-bottom:32px;font-weight:500}
+.final-urg{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#fff;border:1px solid var(--border-color);border-radius:var(--radius-full);font-size:.85rem;font-weight:800;color:var(--coffee-dark);margin-bottom:32px;box-shadow:var(--shadow-sm)}
+.final-price{font-size:2.5rem;font-weight:900;color:var(--teal-deep);margin-bottom:32px}
+
+.footer{padding:40px 32px;background:var(--coffee-dark);text-align:center;z-index:1;position:relative}
+.footer-line{width:100%;height:1px;background:rgba(255,255,255,0.1);margin-bottom:24px}
+.footer-logo{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:8px}
+.footer-sub{font-size:.85rem;color:rgba(255,255,255,.5);font-weight:500}.footer-sub a{color:var(--teal-light);text-decoration:none;font-weight:700}
+
+@media(max-width:1023px){
+  .faq-layout{grid-template-columns:1fr}.faq-img{max-width:550px;margin:0 auto 32px}
+  .fc-wrapper { flex-direction: column; min-height: auto; }
+  .fc-left { width: 100%; height: 280px; padding: 0; justify-content: center; }
+  .fc-fade-t, .fc-fade-b { height: 40px; }
+  .fc-right { height: 400px; padding: 20px; }
+  .fc-img-card { inset: 20px; border-width: 4px; }
+  .fc-info { padding: 40px 24px 24px; }
+  .rev-grid { grid-template-columns: repeat(2, 1fr); } .hidden-md { display: none; }
+}
+@media(max-width:899px){.nav-links{display:none}.burger{display:flex}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(255,255,255,.98);padding:20px;gap:8px;box-shadow:var(--shadow-md)}.nav-links.open a.nl{padding:14px 18px;color:var(--coffee-dark)}.hero-content{padding:100px 24px 60px}.aud,.prog,.spk-sec,.prizes,.rev-v2,.faq{padding:80px 24px}.hook{padding:80px 24px}.final{padding:80px 24px}.trust{padding:40px 20px}}
+@media(max-width:767px){
+  .hero-title{font-size:2.5rem}.cg-new{flex-direction:column;width:100%;max-width:320px;margin:0 auto}.btn-primary,.bo-glass{width:100%;justify-content:center}.cdr-light{flex-wrap:wrap;gap:8px}.cds-light{display:none}.pcard{grid-template-columns:1fr;gap:16px;padding:24px}.pbadge{flex-direction:row;align-items:center;gap:12px}.pday{font-size:2.2rem}.hstats{flex-direction:column;gap:32px}.st{font-size:2rem}.trust-items{gap:24px}.tn{font-size:1.4rem}
+  .acc-container{flex-direction:column;height:auto;gap:8px;} .acc-item{width:100% !important;height:80px;} .acc-item.active{height:300px;} .acc-content{transform:translate(-50%, -50%) rotate(0deg);left:50%;top:50%;bottom:auto;opacity:1;flex-direction:row;gap:16px;width:100%;} .acc-item.active .acc-content{transform:translateX(-50%) rotate(0deg);bottom:20px;top:auto;flex-direction:column;width:90%;}
+  .fc-btn { padding: 12px 20px; } .fc-name { font-size: 1.6rem; }
+  .rev-grid { grid-template-columns: 1fr; } .hidden-sm { display: none; } .rev-mask { max-height: 600px; }
+}
+@media(max-width:599px){.nav{padding:0 16px;height:64px}.hero-content{padding:100px 16px 48px}.cdb-light{min-width:64px;padding:12px}.cdn-light{font-size:1.8rem}.aud,.prog,.spk-sec,.prizes,.rev-v2,.faq{padding:60px 16px}.hook{padding:60px 16px}.final{padding:60px 16px}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo"><img src="https://i.ibb.co/dJMk5M1h/40-x-40.png" alt="BMC">Big Money China</a>
+  <ul class="nav-links" id="nv">
+    <li><a href="#audience" class="nl">Для кого</a></li>
+    <li><a href="#program" class="nl">Программа</a></li>
+    <li><a href="#speakers" class="nl">Спикеры</a></li>
+    <li><a href="#reviews" class="nl">Отзывы</a></li>
+    <li><a href="#faq" class="nl">FAQ</a></li>
+    <li><a href="https://t.me/ciberdelobot" target="_blank" class="btn-primary btn-nav">Билет 501₽</a></li>
+  </ul>
+  <div class="burger" onclick="document.getElementById('nv').classList.toggle('open')"><span></span><span></span><span></span></div>
+</nav>
+
+<section class="hero-wrapper">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  
+  <div class="hero-content">
+    <div class="hero-badge"><div class="dot"></div>Международный онлайн-форум · 21–23 апреля 2026</div>
+    
+    <h1 class="hero-title">Технологии <br><span class="gr">и Бизнес</span></h1>
+    <p class="hero-sub">Сфера биохакинга и рынок Китая. Новая эра вашего дохода в индустрии на $3.2 трлн.</p>
+    
+    <div class="cdw-light">
+      <div class="cdl-light">
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:var(--coffee-mid);stroke-width:2.5;fill:none"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        До начала форума
+      </div>
+      <div class="cdr-light">
+        <div class="cdb-light"><div class="cdn-light" id="d">00</div><div class="cdu-light">дней</div></div><span class="cds-light">:</span>
+        <div class="cdb-light"><div class="cdn-light" id="h">00</div><div class="cdu-light">часов</div></div><span class="cds-light">:</span>
+        <div class="cdb-light"><div class="cdn-light" id="m">00</div><div class="cdu-light">минут</div></div><span class="cds-light">:</span>
+        <div class="cdb-light"><div class="cdn-light" id="s">00</div><div class="cdu-light">секунд</div></div>
+      </div>
+    </div>
+
+    <div class="sw-light">
+      <div class="sb-light">
+        <div class="sh-light"><span>Места на форум</span><span class="r" id="sp2">0%</span></div>
+        <div class="sbar-light"><div class="sfill-light" id="sf2"></div></div>
+        <div class="sf-light"><span class="b">Занято: <span id="sc2">0</span> из 3 000</span><span>Осталось <span id="sl2">3 000</span></span></div>
+      </div>
+    </div>
+
+    <div class="cg-new">
+      <a href="https://t.me/ciberdelobot" target="_blank" class="btn-primary">Купить билет за 501₽ →</a>
+      <a href="#program" class="bo-glass">Смотреть программу</a>
+    </div>
+  </div>
+</section>
+
+<section class="trust reveal">
+  <div class="trust-img"><img src="https://i.ibb.co/mrRLnJnR/1200-x-600-1.png" alt="Технологии здоровья" loading="lazy"></div>
+  <div class="trust-items">
+    <div class="ti"><div class="tn">18+</div><div class="tt">лет<br>на рынке</div></div>
+    <div class="ti"><div class="tn">50+</div><div class="tt">стран<br>присутствия</div></div>
+    <div class="ti"><div class="tn">GMP</div><div class="tt">ISO · FDA<br>сертификаты</div></div>
+    <div class="ti"><div class="tn">НИИ</div><div class="tt">собственные<br>лаборатории</div></div>
+  </div>
+</section>
+
+<section class="aud" id="audience">
+  <div class="sec-h reveal"><div class="chip"><div class="ico-sm ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>Целевая аудитория</div><h2 class="st">Для кого этот Форум</h2><p class="ss">Узнали себя хотя бы в одном — значит, 21 апреля вам нужно быть на экране</p></div>
+  <div class="aug">
+    <div class="auc reveal" style="transition-delay:.05s"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h4>Предприниматели</h4><p>Новая ниша или масштабирование. Китай — $19 трлн ВВП и самый быстрорастущий рынок мира.</p></div>
+    <div class="auc reveal" style="transition-delay:.1s"><div class="ico ico-v"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><h4>Специалисты в найме</h4><p>Доход 50–150К₽, потолок близко. Дополнительный источник — без увольнения.</p></div>
+    <div class="auc reveal" style="transition-delay:.15s"><div class="ico"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div><h4>Разочарованы в MLM</h4><p>Другая модель: без обязательных покупок, реальный продукт и команда поддержки.</p></div>
+    <div class="auc reveal" style="transition-delay:.2s"><div class="ico ico-v"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h4>Фанаты биохакинга</h4><p>Wellness, anti-age — рынок $3.2 трлн к 2030. Здоровье + дело = формула.</p></div>
+    <div class="auc reveal" style="transition-delay:.25s"><div class="ico"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><h4>Мамы и фрилансеры</h4><p>Свободный график, телефон, любая точка мира. Бизнес растёт с вами.</p></div>
+    <div class="auc reveal" style="transition-delay:.3s"><div class="ico ico-v"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h4>Молодёжь 20–30</h4><p>Первый бизнес. Готовая система с наставником — без проб и ошибок.</p></div>
+  </div>
+</section>
+
+<section class="hook">
+  <div class="hook-inner reveal">
+    <div class="hq">Весь мир разворачивается на Восток. <span class="hl-t">$19 трлн ВВП</span>, лидерство в биотехнологиях. Вопрос: вы внутри или наблюдаете?</div>
+    <div class="hstats">
+      <div class="hstat"><div class="hn" data-t="19">0</div><div class="hu">трлн $ — ВВП Китая</div></div>
+      <div class="hstat"><div class="hn" data-t="3.2" data-d="1">0</div><div class="hu">трлн $ — wellness</div></div>
+      <div class="hstat"><div class="hn" data-t="5000">0</div><div class="hu">лет — мудрость ТКМ</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="prog" id="program">
+  <div class="sec-h reveal"><div class="chip"><div class="ico-sm ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>Программа</div><h2 class="st">Три дня, которые изменят ваш взгляд</h2><p class="ss">Каждый день — законченная история. Вместе — пазл, после которого один вопрос: «Когда начинаю?»</p></div>
+  
+  <div class="acc-wrapper reveal">
+    <div class="acc-container">
+      <div class="acc-item active">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="День 1" class="acc-img" loading="lazy">
+        <div class="acc-overlay"></div>
+        <div class="acc-content"><div class="acc-day">День 1</div><div class="acc-title">Почему Китай.<br>Почему сейчас.</div></div>
+      </div>
+      <div class="acc-item">
+        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2070&auto=format&fit=crop" alt="День 2" class="acc-img" loading="lazy">
+        <div class="acc-overlay"></div>
+        <div class="acc-content"><div class="acc-day">День 2</div><div class="acc-title">Технологии, которые<br>меняют правила</div></div>
+      </div>
+      <div class="acc-item">
+        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=1974&auto=format&fit=crop" alt="День 3" class="acc-img" loading="lazy">
+        <div class="acc-overlay"></div>
+        <div class="acc-content"><div class="acc-day">День 3</div><div class="acc-title">День Денег:<br>План к первым $1000</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pcards">
+    <div class="pcard reveal-left">
+      <div class="pbadge"><div class="pday">01</div><div class="pdate">21 апреля · 11:00 МСК</div></div>
+      <div class="pcont"><h3>Почему Китай. Почему сейчас.</h3><p>Фундамент. Масштаб первой экономики и кто стоит за партнёрами — заводы, НИИ, государственная стратегия.</p>
+        <div class="ptopics"><div class="ptopic">Почему деньги текут на Восток: геополитический расклад 2026</div><div class="ptopic">Компания: 18 лет, 50+ стран, GMP-заводы в Тяньцзине</div><div class="ptopic">«Один пояс, один путь» — как это касается вашего дохода</div><div class="ptopic">Живая история партнёра: от нуля до команды в 3 странах</div></div>
+      </div>
+    </div>
+    <div class="pcard reveal-right" style="transition-delay:.12s">
+      <div class="pbadge"><div class="pday">02</div><div class="pdate">22 апреля · 11:00 МСК</div></div>
+      <div class="pcont"><h3>Технологии, которые меняют правила</h3><p>Двигатель. Биохакинг, THZ-волны — продукты, от которых отвисает челюсть за 15 минут.</p>
+        <div class="ptopics"><div class="ptopic">Три доктрины здоровья: 5000 лет ТКМ + современная биотехнология</div><div class="ptopic">7 вечных рыночных ниш: сон, SPA, зрение, питание и др.</div><div class="ptopic">ТОП лучших продуктов ТКМ</div><div class="ptopic">THZ-активатор клеток, анионы, инфракрасные волны — наука простым языком</div></div>
+      </div>
+    </div>
+    <div class="pcard reveal-left" style="transition-delay:.24s">
+      <div class="pbadge"><div class="pday">03</div><div class="pdate">23 апреля · 11:00 МСК</div></div>
+      <div class="pcont"><h3>День Денег</h3><p>Руль. Конкретные цифры, маркетинг-план, шаги к первым $1 000.</p>
+        <div class="ptopics"><div class="ptopic">Маркетинг-план: сколько зарабатывают и через какие этапы</div><div class="ptopic">5 живых историй: реальные чеки партнёров на экране</div><div class="ptopic">Академия BMC: система обучения с нуля до результата</div><div class="ptopic">Главный розыгрыш Форума — Бизнес место + подарок на 50 000 руб.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="spk-sec" id="speakers">
+  <div class="sec-h reveal">
+    <div class="chip"><div class="ico-sm ico ico-v"><svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>Эксперты</div>
+    <h2 class="st">10+ спикеров-практиков</h2>
+    <p class="ss">Не теоретики. Люди, которые делают бизнес с Китаем каждый день</p>
+  </div>
+  
+  <div class="fc-wrapper reveal">
+    <div class="fc-left">
+      <div class="fc-fade-t"></div><div class="fc-fade-b"></div>
+      <div class="fc-list-container" id="fcList"></div>
+    </div>
+    <div class="fc-right" id="fcImages"></div>
+  </div>
+</section>
+
+<section class="rev-v2" id="reviews">
+  <div class="sec-h reveal">
+    <div class="chip"><div class="ico-sm ico ico-v"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>Отзывы</div>
+    <h2 class="st">Что говорят участники</h2>
+    <p class="ss">Откройте для себя истории людей, которые уже сделали первый шаг к новому уровню дохода и здоровья.</p>
+  </div>
+  
+  <div class="rev-mask reveal">
+    <div class="rev-grid" id="revGrid"></div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="sec-h reveal"><div class="chip"><div class="ico-sm ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>Вопросы</div><h2 class="st">Частые вопросы</h2></div>
+  <div class="faq-layout">
+    <div class="faq-img reveal-left"><img src="https://i.ibb.co/Mx5gffKm/800-x-500.png" alt="Партнёрство" loading="lazy"></div>
+    <div class="faq-list">
+      <div class="fi reveal-right"><div class="fq" onclick="tFaq(this)">Сколько стоит участие?<svg class="farr" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div><div class="fa"><div class="fa-inner">Билет на все 3 дня форума стоит <strong>501₽</strong>. Это разовый платёж — никаких доплат. Вы получаете доступ ко всем эфирам, участие в розыгрышах призов и запись.</div></div></div>
+      <div class="fi reveal-right" style="transition-delay:.08s"><div class="fq" onclick="tFaq(this)">Будет ли запись?<svg class="farr" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div><div class="fa"><div class="fa-inner">Записи доступны 24 часа после эфира. Но розыгрыши призов — только в прямом эфире. Присутствуйте live, чтобы участвовать!</div></div></div>
+      <div class="fi reveal-right" style="transition-delay:.16s"><div class="fq" onclick="tFaq(this)">Это сетевой маркетинг?<svg class="farr" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div><div class="fa"><div class="fa-inner">Компания использует партнёрскую модель — без обязательных покупок, без давления. На форуме увидите реальную бизнес-модель и решите сами.</div></div></div>
+      <div class="fi reveal-right" style="transition-delay:.24s"><div class="fq" onclick="tFaq(this)">Нужен ли опыт в бизнесе?<svg class="farr" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div><div class="fa"><div class="fa-inner">Нет. Форум рассчитан на новичков. День 1 — основы, День 2 — продукт, День 3 — конкретные шаги. Академия BMC обучает с нуля.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="register">
+  <div class="final-inner reveal-scale">
+    <h2 class="st">Ваше место на Форуме</h2>
+    <p class="final-text">21 апреля — старт. Три дня, 10+ экспертов, призы каждый день.<br>Количество мест ограничено — не упустите свой шанс.</p>
+    <div class="final-price">Билет: 501 ₽</div>
+    <div class="final-urg">Осталось менее <span id="sl3">3 000</span> мест из 3 000</div><br><br>
+    <a href="https://t.me/ciberdelobot" target="_blank" class="btn-primary">Купить билет за 501₽ →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-logo">Big Money China · Международный форум</div>
+  <div class="footer-sub">«Технологии и Бизнес» · 21–23 апреля 2026 · Билет 501₽ · <a href="https://t.me/ciberdelobot" target="_blank">t.me/ciberdelobot</a></div>
+</footer>
+
+<script>
+// COUNTERS
+function cd(){
+  const t = new Date('2026-04-21T11:00:00+03:00'), n = new Date(), x = t - n;
+  if(x <= 0) return;
+  document.getElementById('d').textContent = String(Math.floor(x/864e5)).padStart(2,'0');
+  document.getElementById('h').textContent = String(Math.floor((x/36e5)%24)).padStart(2,'0');
+  document.getElementById('m').textContent = String(Math.floor((x/6e4)%60)).padStart(2,'0');
+  document.getElementById('s').textContent = String(Math.floor((x/1e3)%60)).padStart(2,'0');
+}
+cd(); setInterval(cd, 1000);
+
+(function(){
+  const T = 3000, startD = new Date('2026-03-26T00:00:00+03:00'), targetD = new Date('2026-04-21T00:00:00+03:00');
+  let passed = new Date() - startD; if (passed < 0) passed = 0;
+  let progress = passed / (targetD - startD); if (progress > 1) progress = 1;
+  let b = Math.floor(15 + (T - 50 - 15) * progress); if(b > T) b = T;
+  const l = T - b, p = Math.round((b / T) * 100); 
+  document.getElementById('sc2').textContent = b.toLocaleString('ru-RU'); document.getElementById('sl2').textContent = l.toLocaleString('ru-RU'); document.getElementById('sp2').textContent = p + '%';
+  ['sl3'].forEach(id=>{ const el=document.getElementById(id); if(el) el.textContent=l.toLocaleString('ru-RU'); });
+  setTimeout(()=>{document.getElementById('sf2').style.width=p+'%'},800);
+})();
+
+// SPEAKER CAROUSEL (CLEAN JS)
+(function(){
+  const speakers = [
+    { name: "Роман Стружук", role: "Ведущий форума", img: "https://i.ibb.co/Z1HVKskc/image.png", desc: "Главный архитектор академии BMC. Интеграция смыслов и энергетика форума." },
+    { name: "Андрей Бобрышев", role: "Бизнес-модель", img: "https://i.ibb.co/qYG4j5nn/image.png", desc: "Глубокая аналитика $19 трлн рынка Китая и пошаговая бизнес-стратегия." },
+    { name: "Кирилл Ковязин", role: "Практик", img: "https://i.ibb.co/ymMhmTb9/3.png", desc: "Разбор кейсов с нуля. Как избежать ошибок на старте." },
+    { name: "Евгений Гнездилов", role: "Стратег", img: "https://i.ibb.co/kg4pHxxK/1.png", desc: "Масштабирование структуры и выход на международные рынки." },
+    { name: "Дмитрий Полунин", role: "Быстрый старт", img: "https://i.ibb.co/5gDzLy82/5.png", desc: "Алгоритм первых 30 дней. Как выйти на первую $1000." },
+    { name: "Алёна Кирута", role: "Геополитика", img: "https://i.ibb.co/qFsJcpKX/2.png", desc: "Почему Восток. Геополитические изменения и новые финансовые потоки." },
+    { name: "Евгения Герасимова", role: "Продукт Hi-Tech", img: "https://i.ibb.co/Rpd1hpWs/4.png", desc: "Технологии THZ и анионов. Разбор флагманских продуктов." },
+    { name: "Анастасия Оптинская", role: "Биохакинг", img: "https://i.ibb.co/TNtR9zK/6.png", desc: "Синтез ТКМ и биотехнологий. 7 вечных ниш здоровья." },
+    { name: "Александр Кудымов", role: "Спикер", img: "https://i.ibb.co/p6S4XYLz/8.png", desc: "Практическое применение гаджетов и интеграция в экосистему." },
+    { name: "Оксана Кармашкина", role: "Спикер", img: "https://i.ibb.co/HfH7q0v5/7.png", desc: "Создание клиентской базы и инструменты удержания лояльности." }
+  ];
+
+  const fcList = document.getElementById('fcList'), fcImages = document.getElementById('fcImages');
+  if(!fcList || !fcImages) return;
+
+  const ITEM_HEIGHT = window.innerWidth < 768 ? 55 : 65;
+  let currentIndex = 0, isPaused = false;
+
+  function wrap(min, max, v) { const rangeSize = max - min; return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min; }
+
+  speakers.forEach((spk, i) => {
+    const btn = document.createElement('button'); btn.className = 'fc-btn';
+    btn.innerHTML = `<span class="fc-btn-num">0${i+1}</span><span class="fc-btn-text">${spk.name}</span>`;
+    btn.onclick = () => { currentIndex = i; renderCarousel(); };
+    btn.onmouseenter = () => isPaused = true; btn.onmouseleave = () => isPaused = false;
+    fcList.appendChild(btn);
+
+    const card = document.createElement('div'); card.className = 'fc-img-card';
+    card.innerHTML = `<img src="${spk.img}" alt="${spk.name}" loading="lazy"><div class="fc-info"><div class="fc-tag">${spk.role}</div><div class="fc-name">${spk.name}</div><div class="fc-role">${spk.desc}</div></div>`;
+    fcImages.appendChild(card);
+  });
+
+  const btns = fcList.querySelectorAll('.fc-btn'), cards = fcImages.querySelectorAll('.fc-img-card');
+
+  function renderCarousel() {
+    const len = speakers.length;
+    btns.forEach((btn, i) => {
+      const dist = i - currentIndex, wrappedDist = wrap(-(len / 2), len / 2, dist);
+      btn.style.transform = `translateY(${wrappedDist * ITEM_HEIGHT}px)`;
+      btn.style.opacity = Math.max(0, 1 - Math.abs(wrappedDist) * 0.25);
+      if(wrappedDist === 0) { btn.classList.add('active'); btn.style.zIndex = '5'; } 
+      else { btn.classList.remove('active'); btn.style.zIndex = '1'; }
+    });
+
+    cards.forEach((card, i) => {
+      let normDiff = i - currentIndex;
+      if (normDiff > len / 2) normDiff -= len; if (normDiff < -len / 2) normDiff += len;
+      card.className = 'fc-img-card'; 
+      if (normDiff === 0) card.classList.add('active');
+    });
+  }
+
+  setInterval(() => { if(!isPaused) { currentIndex = (currentIndex + 1) % speakers.length; renderCarousel(); } }, 3500);
+  renderCarousel();
+})();
+
+// REVIEWS GENERATOR
+(function(){
+  const reviews = [
+    { text: "Пришла из скептицизма — ушла с готовым планом. За три дня поняла куда двигаться. Через месяц уже были первые результаты.", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150", name: "Марина К.", role: "Фрилансер" },
+    { text: "Я пробовал три сетевых компании. Здесь другое: реальный продукт и маркетинг-план без обязаловки. Через 2 месяца первые $500.", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&h=150", name: "Алексей Т.", role: "Предприниматель" },
+    { text: "Биоэнергомассажёр показали в эфире — эффект за 15 минут. Купила себе, потом мужу, теперь это мой бизнес. Доход вырос в 3 раза.", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&h=150", name: "Елена В.", role: "Мама в декрете" },
+    { text: "Билет 501 рубль — лучшая инвестиция в жизни. Уже на первом дне понял, что хочу работать с Китаем. Через 3 месяца — команда из 12 человек.", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150", name: "Дмитрий Р.", role: "Бизнесмен" },
+    { text: "Сижу в декрете, искала удалённый заработок. После форума подключилась — через месяц закрыла первый квалификационный уровень.", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150", name: "Ольга С.", role: "Мама 2-х детей" },
+    { text: "Я врач. Меня зацепили технологии — THZ-волны, анионы. Изучил, убедился. Теперь совмещаю медицину и партнёрство. Доп. доход 80К₽/мес.", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150", name: "Игорь М.", role: "Врач-терапевт" },
+    { text: "Отличные инструменты для здоровья и заработка. Идеальная синергия, которую я давно искала для своей практики.", img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&h=150", name: "Светлана Ю.", role: "Нутрициолог" },
+    { text: "Китайский рынок — это масштаб. На форуме я нашел полностью прозрачную и готовую бизнес-систему без скрытых условий.", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&h=150", name: "Виктор П.", role: "Инвестор" },
+    { text: "Мои клиенты в восторге от продуктов, а я просто без ума от вашей партнерской программы! Эфиры смотрелись на одном дыхании.", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&h=150", name: "Анна Л.", role: "Косметолог" },
+    { text: "Технологичный подход чувствуется во всем. Очень удобная экосистема обучения и наставничества. Рекомендую стартовать именно сейчас.", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&h=150", name: "Руслан З.", role: "IT-специалист" },
+    { text: "Внедрила приборы в свой салон, выручка выросла на 40% за первый же месяц. Клиентов стало больше благодаря вау-эффекту.", img: "https://images.unsplash.com/photo-1531123897727-8f129e1bf98c?auto=format&fit=crop&w=150&h=150", name: "Татьяна М.", role: "Владелец салона" },
+    { text: "Начал с полного нуля, менторы помогли выйти на первые стабильные $500 уже на второй месяц. Главное просто делать по инструкции.", img: "https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&w=150&h=150", name: "Кирилл С.", role: "Студент" }
+  ];
+
+  const cols = [reviews.slice(0,4), reviews.slice(4,8), reviews.slice(8,12)];
+  const grid = document.getElementById('revGrid');
+  
+  if(grid) {
+    cols.forEach((colData, i) => {
+      const colDiv = document.createElement('div');
+      colDiv.className = `rev-col ${i === 1 ? 'hidden-sm' : ''} ${i === 2 ? 'hidden-md' : ''}`;
+      let cardsHtml = '';
+      for(let repeat = 0; repeat < 2; repeat++) {
+        colData.forEach(r => {
+          cardsHtml += `<div class="rc-card"><div class="rc-text">«${r.text}»</div><div class="rc-user"><img src="${r.img}" alt="${r.name}" class="rc-avatar" loading="lazy"><div><div class="rc-name">${r.name}</div><div class="rc-role">${r.role}</div></div></div></div>`;
+        });
+      }
+      colDiv.innerHTML = `<div class="rev-track tr-${i+1}">${cardsHtml}</div>`;
+      grid.appendChild(colDiv);
+    });
+  }
+})();
+
+// ACCORDION
+(function(){
+  const accItems = document.querySelectorAll('.acc-item');
+  accItems.forEach(item => {
+    item.addEventListener('mouseenter', () => { accItems.forEach(el => el.classList.remove('active')); item.classList.add('active'); });
+  });
+})();
+
+// OTHER LOGIC
+function rv(){document.querySelectorAll('.reveal,.reveal-left').forEach(e=>{if(e.getBoundingClientRect().top<innerHeight*.88)e.classList.add('visible')})}addEventListener('scroll',rv,{passive:true});addEventListener('load',rv);
+addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>50),{passive:true});
+document.querySelectorAll('.nav-links a.nl').forEach(a=>a.addEventListener('click',()=>document.getElementById('nv').classList.remove('open')));
+function ac(){document.querySelectorAll('.hn').forEach(e=>{if(e.getBoundingClientRect().top<innerHeight*.9&&!e.dataset.done){e.dataset.done='1';const t=parseFloat(e.dataset.t),dec=e.dataset.d==='1',dur=2400,st=performance.now();(function f(now){const p=Math.min((now-st)/dur,1),v=t*(1-Math.pow(1-p,4));e.textContent=dec?v.toFixed(1):t>=1000?Math.floor(v).toLocaleString('ru-RU'):Math.floor(v);if(p<1)requestAnimationFrame(f);else e.textContent=dec?t.toFixed(1):t>=1000?t.toLocaleString('ru-RU'):t})(st)}})}addEventListener('scroll',ac,{passive:true});
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})}));
+function tFaq(el){const it=el.parentElement,a=it.querySelector('.fa'),inner=a.querySelector('.fa-inner');if(it.classList.contains('open')){a.style.maxHeight='0';it.classList.remove('open')}else{document.querySelectorAll('.fi.open').forEach(i=>{i.querySelector('.fa').style.maxHeight='0';i.classList.remove('open')});a.style.maxHeight=inner.scrollHeight+'px';it.classList.add('open')}}
+</script>
+</body>
+</html>
