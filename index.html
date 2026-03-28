@@ -160,8 +160,84 @@ nav.scrolled {
 }
 
 /* ═══════════════════════════════════════════
-   HERO (Vitruvian)
+   HERO
 ═══════════════════════════════════════════ */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 80px;
+  text-align: center;
+}
+.hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.3);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cyan);
+  margin-bottom: 32px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.hero-badge-dot {
+  width: 8px; height: 8px;
+  background: var(--cyan);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+  box-shadow: 0 0 10px var(--cyan);
+  flex-shrink: 0;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+.hero-title {
+  font-size: clamp(3.2rem, 8vw, 7rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+  will-change: transform;
+}
+.hero-title-line1 {
+  display: block;
+  color: #fff;
+}
+.hero-title-gradient {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--blue), var(--violet), var(--cyan));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 4s linear infinite;
+}
+@keyframes gradient-shift {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+.hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--text-dim);
+  font-weight: 400;
+  max-width: 650px;
+  margin: 0 auto 48px;
+  line-height: 1.7;
+}
+.hero-subtitle strong {
+  color: #fff;
+  font-weight: 700;
+}
 
 /* Countdown */
 .countdown-card {
@@ -210,7 +286,7 @@ nav.scrolled {
 /* Progress bar */
 .seats-bar-wrap {
   max-width: 500px;
-  margin: 0 0 40px 0;
+  margin: 0 auto 40px;
 }
 .seats-label {
   display: flex;
@@ -254,7 +330,7 @@ nav.scrolled {
 .cta-group {
   display: flex;
   gap: 16px;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
 }
 .btn-primary {
@@ -301,238 +377,6 @@ nav.scrolled {
   border-color: rgba(59,130,246,0.5);
   box-shadow: 0 0 30px rgba(59,130,246,0.2);
   transform: translateY(-2px);
-}
-
-/* VITRUVIAN HERO */
-.hero-vitruvian {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  z-index: 2;
-}
-.vitruvian-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-[data-us-project] { position: relative !important; overflow: hidden !important; }
-[data-us-project] canvas { clip-path: inset(0 0 10% 0) !important; }
-[data-us-project] * { pointer-events: none !important; }
-[data-us-project] a[href*="unicorn"],
-[data-us-project] button[title*="unicorn"],
-[data-us-project] div[title*="Made with"],
-[data-us-project] .unicorn-brand,
-[data-us-project] [class*="brand"],
-[data-us-project] [class*="credit"],
-[data-us-project] [class*="watermark"] {
-  display: none !important; visibility: hidden !important; opacity: 0 !important;
-  position: absolute !important; left: -9999px !important;
-}
-
-/* Hero frame corners */
-.hero-frame-tl, .hero-frame-tr, .hero-frame-bl, .hero-frame-br {
-  position: absolute; width: 12px; height: 12px; z-index: 20;
-}
-.hero-frame-tl { top: 0; left: 0; border-top: 2px solid rgba(255,255,255,0.3); border-left: 2px solid rgba(255,255,255,0.3); }
-.hero-frame-tr { top: 0; right: 0; border-top: 2px solid rgba(255,255,255,0.3); border-right: 2px solid rgba(255,255,255,0.3); }
-.hero-frame-bl { bottom: 80px; left: 0; border-bottom: 2px solid rgba(255,255,255,0.3); border-left: 2px solid rgba(255,255,255,0.3); }
-.hero-frame-br { bottom: 80px; right: 0; border-bottom: 2px solid rgba(255,255,255,0.3); border-right: 2px solid rgba(255,255,255,0.3); }
-
-.hero-content-wrap {
-  position: relative; z-index: 10;
-  width: 100%; max-width: 580px;
-  padding: 100px 40px 120px;
-  margin-left: 8%;
-}
-.hero-inner-content { position: relative; }
-
-.hero-deco-line {
-  display: flex; align-items: center; gap: 8px;
-  margin-bottom: 16px; opacity: 0.5;
-}
-.hero-deco-bar { width: 32px; height: 1px; background: currentColor; }
-.hero-deco-bar-grow { flex: 1; }
-.hero-deco-num { font-family: monospace; font-size: 10px; letter-spacing: 0.1em; }
-
-.hero-main-title {
-  font-family: monospace, 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: 0.08em;
-  margin-bottom: 12px;
-}
-.hero-title-word { display: block; }
-.hero-title-sub { opacity: 0.85; font-size: 0.85em; }
-
-.hero-dots-pattern {
-  display: flex; gap: 3px; margin-bottom: 16px; opacity: 0.35;
-}
-.hero-dots-pattern::before {
-  content: '· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·';
-  font-size: 8px; letter-spacing: 2px;
-}
-
-.hero-main-desc {
-  font-family: monospace; font-size: 0.85rem;
-  opacity: 0.7; line-height: 1.6;
-  margin-bottom: 24px;
-}
-
-.hero-btn-tech { position: relative; font-family: monospace; letter-spacing: 0.1em; }
-.btn-corner-tl, .btn-corner-br {
-  position: absolute; width: 8px; height: 8px;
-  opacity: 0; transition: opacity 0.2s;
-}
-.btn-corner-tl { top: -3px; left: -3px; border-top: 2px solid currentColor; border-left: 2px solid currentColor; }
-.btn-corner-br { bottom: -3px; right: -3px; border-bottom: 2px solid currentColor; border-right: 2px solid currentColor; }
-.hero-btn-tech:hover .btn-corner-tl,
-.hero-btn-tech:hover .btn-corner-br { opacity: 1; }
-
-.hero-bottom-line {
-  display: flex; align-items: center; gap: 8px;
-  margin-top: 28px; opacity: 0.35;
-  font-family: monospace; font-size: 9px; letter-spacing: 0.1em;
-}
-
-.hero-tech-footer {
-  position: absolute; bottom: 0; left: 0; right: 0; z-index: 20;
-  border-top: 1px solid rgba(255,255,255,0.15);
-  background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 24px;
-  font-family: monospace; font-size: 9px; letter-spacing: 0.05em;
-  color: rgba(255,255,255,0.4);
-}
-.hero-tech-left, .hero-tech-right { display: flex; align-items: center; gap: 12px; }
-.hero-tech-bars { display: flex; gap: 2px; }
-.hero-tech-dots { display: flex; gap: 3px; }
-.pulse-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.5); animation: pulse 1.5s infinite; }
-.pulse-dot.d2 { animation-delay: 0.2s; opacity: 0.6; }
-.pulse-dot.d3 { animation-delay: 0.4s; opacity: 0.3; }
-@keyframes pulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
-
-/* THEME TOGGLE */
-.theme-toggle {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 50%;
-  width: 38px; height: 38px;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; color: #fff;
-  transition: all 0.3s;
-  margin-right: 12px;
-}
-.theme-toggle:hover { background: rgba(255,255,255,0.2); }
-.theme-icon-moon { display: none; }
-
-/* LIGHT THEME */
-body.light-theme {
-  --bg-dark: #F5F5F7;
-  --bg-card: rgba(0,0,0,0.03);
-  --bg-glass: rgba(0,0,0,0.04);
-  --border: rgba(0,0,0,0.1);
-  --border-blue: rgba(59,130,246,0.5);
-  color: #1a1a2e;
-}
-body.light-theme { background: #F5F5F7; color: #1a1a2e; }
-body.light-theme #starCanvas { opacity: 0.15; filter: invert(1); }
-body.light-theme nav { background: rgba(245,245,247,0.85); border-color: rgba(0,0,0,0.08); }
-body.light-theme .nav-logo-text,
-body.light-theme .nav-cta { color: #1a1a2e; }
-body.light-theme .nav-cta { background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: #fff !important; border-color: transparent; }
-body.light-theme .nav-logo-sub { color: rgba(26,26,46,0.5); }
-body.light-theme .theme-toggle { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.12); color: #1a1a2e; }
-body.light-theme .theme-icon-sun { display: none; }
-body.light-theme .theme-icon-moon { display: block; }
-
-/* Light theme sections */
-body.light-theme section { color: #1a1a2e; }
-body.light-theme .section-title { color: #1a1a2e; }
-body.light-theme .section-sub { color: rgba(26,26,46,0.6); }
-body.light-theme .section-tag { background: rgba(59,130,246,0.08); border-color: rgba(59,130,246,0.2); color: #3B82F6; }
-
-body.light-theme .trust-card,
-body.light-theme .aud-card,
-body.light-theme .review-card,
-body.light-theme .faq-item,
-body.light-theme .countdown-card {
-  background: rgba(255,255,255,0.8);
-  border-color: rgba(0,0,0,0.08);
-  backdrop-filter: blur(12px);
-  color: #1a1a2e;
-}
-body.light-theme .trust-number,
-body.light-theme .countdown-number { color: #1a1a2e; }
-body.light-theme .trust-label,
-body.light-theme .countdown-label { color: rgba(26,26,46,0.5); }
-
-body.light-theme .btn-primary {
-  background: linear-gradient(135deg, #3B82F6, #8B5CF6);
-  color: #fff !important; border-color: transparent;
-}
-body.light-theme .btn-secondary {
-  border-color: rgba(0,0,0,0.2); color: #1a1a2e;
-}
-
-body.light-theme #hook { background: linear-gradient(135deg, #1e293b, #0f172a); color: #fff; }
-body.light-theme #hook .section-title,
-body.light-theme #hook .section-sub,
-body.light-theme #hook .hook-stat-num,
-body.light-theme #hook .hook-stat-label { color: #fff; }
-
-body.light-theme .hero-vitruvian { background: rgba(245,245,247,0.3); }
-body.light-theme .hero-main-title,
-body.light-theme .hero-main-desc,
-body.light-theme .hero-deco-line,
-body.light-theme .hero-bottom-line { color: #1a1a2e; }
-body.light-theme .hero-tech-footer { background: rgba(245,245,247,0.7); border-color: rgba(0,0,0,0.08); color: rgba(26,26,46,0.4); }
-body.light-theme .hero-frame-tl, body.light-theme .hero-frame-tr,
-body.light-theme .hero-frame-bl, body.light-theme .hero-frame-br { border-color: rgba(0,0,0,0.15); }
-
-body.light-theme .seats-label { color: #1a1a2e; }
-body.light-theme .seats-bar { background: rgba(0,0,0,0.06); }
-body.light-theme .seats-label strong { color: #1a1a2e; }
-
-body.light-theme .review-name { color: #1a1a2e; }
-body.light-theme .review-text { color: rgba(26,26,46,0.7); }
-body.light-theme .review-role { color: rgba(26,26,46,0.4); }
-
-body.light-theme .speaker-name { color: #1a1a2e; }
-body.light-theme .speaker-desc { color: rgba(26,26,46,0.6); }
-
-body.light-theme .faq-question { color: #1a1a2e; }
-body.light-theme .faq-answer-inner { color: rgba(26,26,46,0.6); }
-
-body.light-theme .prize-title { color: #1a1a2e; }
-body.light-theme .prize-desc { color: rgba(26,26,46,0.6); }
-
-body.light-theme footer { background: #0f172a; color: #fff; }
-
-body.light-theme .accordion-trigger { color: #1a1a2e; border-color: rgba(0,0,0,0.08); background: rgba(255,255,255,0.8); }
-body.light-theme .accordion-trigger.active { border-color: rgba(59,130,246,0.4); }
-
-body.light-theme .cursor-trail-canvas { opacity: 0.5; }
-
-body.light-theme #sticky-btn a { background: linear-gradient(135deg, #3B82F6, #8B5CF6); }
-
-body.light-theme #cta-final { background: linear-gradient(135deg, #eef2ff, #f0f4ff); }
-body.light-theme .cta-price { color: #1a1a2e; }
-body.light-theme .cta-final-title { color: #1a1a2e; }
-body.light-theme .cta-final-sub { color: rgba(26,26,46,0.6); }
-
-@media (max-width: 899px) {
-  .vitruvian-bg { display: none; }
-  .hero-content-wrap { margin-left: 0; padding: 100px 24px; max-width: 100%; }
-  .hero-tech-footer { font-size: 8px; padding: 8px 16px; }
-  .hero-main-title { font-size: clamp(1.8rem, 6vw, 2.5rem); }
-}
-@media (max-width: 599px) {
-  .hero-content-wrap { padding: 90px 16px; }
 }
 
 /* ═══════════════════════════════════════════
@@ -1526,7 +1370,7 @@ footer {
   .accordion-content { grid-template-columns: 1fr; }
   .accordion-img { height: 160px; }
   .footer-inner { flex-direction: column; text-align: center; }
-  .hero-main-title { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+  .hero-title { font-size: clamp(2.5rem, 10vw, 4rem); }
   .countdown-card { gap: 8px; }
 }
 </style>
@@ -1547,124 +1391,62 @@ footer {
       <div class="nav-logo-sub">Международный форум</div>
     </div>
   </div>
-  <div style="display:flex;align-items:center;">
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-    <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-  </button>
   <a href="https://t.me/ciberdelobot" target="_blank" rel="noopener" class="nav-cta">Купить билет 501 ₽</a>
-  </div>
 </nav>
 
 <!-- HERO -->
-<section id="hero" class="hero-vitruvian">
-  <!-- UnicornStudio Vitruvian Man animation - desktop only -->
-  <div class="vitruvian-bg" id="vitruvianBg">
-    <div data-us-project="whwOGlfJ5Rz2rHaEUgHl" style="width:100%;height:100%;min-height:100vh;"></div>
-  </div>
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge fade-in-up">
+      <span class="hero-badge-dot"></span>
+      Международный онлайн-форум · 21–23 апреля 2026
+    </div>
+    <h1 class="hero-title fade-in-up" id="heroTitle">
+      <span class="hero-title-line1">Технологии</span>
+      <span class="hero-title-gradient">и Бизнес</span>
+    </h1>
+    <p class="hero-subtitle fade-in-up">
+      Сфера биохакинга и рынок Китая.<br>
+      <strong>Новая эра вашего дохода</strong> в индустрии на <strong>$3.2 трлн.</strong>
+    </p>
 
-  <!-- Mobile fallback: use star canvas (already exists globally) -->
-
-  <!-- Top decorative border -->
-  <div class="hero-frame-tl"></div>
-  <div class="hero-frame-tr"></div>
-  <div class="hero-frame-bl"></div>
-  <div class="hero-frame-br"></div>
-
-  <!-- Main hero content -->
-  <div class="hero-content-wrap">
-    <div class="hero-inner-content">
-      <!-- Top decorative line -->
-      <div class="hero-deco-line">
-        <div class="hero-deco-bar"></div>
-        <span class="hero-deco-num">001</span>
-        <div class="hero-deco-bar hero-deco-bar-grow"></div>
+    <div class="countdown-card fade-in-up" id="countdownCard">
+      <div class="countdown-item">
+        <div class="countdown-number" id="cd-days">00</div>
+        <div class="countdown-label">Дней</div>
       </div>
-
-      <!-- Title -->
-      <h1 class="hero-main-title">
-        <span class="hero-title-word">БИЗНЕС</span>
-        <span class="hero-title-word hero-title-sub">НА СОВРЕМЕННЫХ</span>
-        <span class="hero-title-word hero-title-sub">ТЕХНОЛОГИЯХ</span>
-      </h1>
-
-      <!-- Dots pattern -->
-      <div class="hero-dots-pattern"></div>
-
-      <!-- Description -->
-      <p class="hero-main-desc">
-        Международный онлайн-форум · 21–23 апреля 2026<br>
-        Биохакинг, технологии здоровья и рынок Китая
-      </p>
-
-      <!-- Countdown (keep existing) -->
-      <div class="countdown-card" id="countdownCard">
-        <div class="countdown-item">
-          <div class="countdown-number" id="cd-days">00</div>
-          <div class="countdown-label">Дней</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-item">
-          <div class="countdown-number" id="cd-hours">00</div>
-          <div class="countdown-label">Часов</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-item">
-          <div class="countdown-number" id="cd-mins">00</div>
-          <div class="countdown-label">Минут</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-item">
-          <div class="countdown-number" id="cd-secs">00</div>
-          <div class="countdown-label">Секунд</div>
-        </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-item">
+        <div class="countdown-number" id="cd-hours">00</div>
+        <div class="countdown-label">Часов</div>
       </div>
-
-      <!-- Seats progress -->
-      <div class="seats-bar-wrap">
-        <div class="seats-label">
-          <span>Занято мест: <strong id="seatsOccupied">0</strong> из 3 000</span>
-          <span id="seatsPct" style="font-weight:700;">0%</span>
-        </div>
-        <div class="seats-bar">
-          <div class="seats-fill" id="seatsFill"></div>
-        </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-item">
+        <div class="countdown-number" id="cd-mins">00</div>
+        <div class="countdown-label">Минут</div>
       </div>
-
-      <!-- CTA Buttons with technical accents -->
-      <div class="cta-group">
-        <a href="https://t.me/ciberdelobot" target="_blank" rel="noopener" class="btn-primary hero-btn-tech">
-          <span class="btn-corner-tl"></span>
-          <span class="btn-corner-br"></span>
-          КУПИТЬ БИЛЕТ — 501 ₽
-        </a>
-        <a href="#program" class="btn-secondary hero-btn-tech">ПРОГРАММА ФОРУМА</a>
-      </div>
-
-      <!-- Bottom technical notation -->
-      <div class="hero-bottom-line">
-        <span>∞</span>
-        <div class="hero-deco-bar hero-deco-bar-grow"></div>
-        <span>FORUM 2026</span>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-item">
+        <div class="countdown-number" id="cd-secs">00</div>
+        <div class="countdown-label">Секунд</div>
       </div>
     </div>
-  </div>
 
-  <!-- Bottom tech footer bar within hero -->
-  <div class="hero-tech-footer">
-    <div class="hero-tech-left">
-      <span>SYSTEM.ACTIVE</span>
-      <div class="hero-tech-bars"></div>
-      <span>V1.0.0</span>
-    </div>
-    <div class="hero-tech-right">
-      <span>◐ RENDERING</span>
-      <div class="hero-tech-dots">
-        <span class="pulse-dot"></span>
-        <span class="pulse-dot d2"></span>
-        <span class="pulse-dot d3"></span>
+    <div class="seats-bar-wrap fade-in-up">
+      <div class="seats-label">
+        <span>Занято мест: <strong id="seatsOccupied">0</strong> из 3 000</span>
+        <span style="color:var(--blue);font-weight:700;" id="seatsPct">0%</span>
       </div>
-      <span>FRAME: ∞</span>
+      <div class="seats-bar">
+        <div class="seats-fill" id="seatsFill"></div>
+      </div>
+    </div>
+
+    <div class="cta-group fade-in-up">
+      <a href="https://t.me/ciberdelobot" target="_blank" rel="noopener" class="btn-primary">
+        🚀 Купить билет — 501 ₽
+      </a>
+      <a href="#program" class="btn-secondary">Смотреть программу</a>
     </div>
   </div>
 </section>
@@ -3079,67 +2861,6 @@ document.addEventListener('keydown', e => {
   setTimeout(() => {
     if (el('seatsFill')) el('seatsFill').style.width = pct + '%';
   }, 800);
-})();
-
-// UNICORN STUDIO VITRUVIAN
-(function(){
-  if (window.innerWidth < 900) return; // Skip on mobile
-  var s = document.createElement('script');
-  s.src = 'https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.33/dist/unicornStudio.umd.js';
-  s.onload = function() {
-    if (!window.UnicornStudio.isInitialized) {
-      UnicornStudio.init();
-      window.UnicornStudio.isInitialized = true;
-    }
-  };
-  window.UnicornStudio = window.UnicornStudio || { isInitialized: false };
-  document.head.appendChild(s);
-  
-  // Hide branding
-  function hideBranding() {
-    var el = document.querySelector('[data-us-project]');
-    if (el) {
-      el.querySelectorAll('*').forEach(function(e) {
-        var t = (e.textContent || '').toLowerCase();
-        if (t.includes('made with') || t.includes('unicorn')) e.remove();
-      });
-    }
-  }
-  setInterval(hideBranding, 200);
-  setTimeout(hideBranding, 2000);
-  setTimeout(hideBranding, 5000);
-})();
-
-// Tech bars in hero footer
-(function(){
-  var container = document.querySelector('.hero-tech-bars');
-  if (container) {
-    for (var i = 0; i < 8; i++) {
-      var bar = document.createElement('div');
-      bar.style.cssText = 'width:2px;height:' + (4 + Math.random() * 10) + 'px;background:rgba(255,255,255,0.25);';
-      container.appendChild(bar);
-    }
-  }
-})();
-
-// THEME TOGGLE
-(function(){
-  var btn = document.getElementById('themeToggle');
-  // Default: light theme
-  var saved = null;
-  if (saved === 'dark') {
-    // User previously chose dark - remove light class if it was added
-    document.body.classList.remove('light-theme');
-  } else {
-    document.body.classList.add('light-theme');
-  }
-  
-  if (btn) {
-    btn.addEventListener('click', function() {
-      document.body.classList.toggle('light-theme');
-      // theme toggled
-    });
-  }
 })();
 </script>
 </body>
