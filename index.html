@@ -1373,9 +1373,75 @@ footer {
   .hero-title { font-size: clamp(2.5rem, 10vw, 4rem); }
   .countdown-card { gap: 8px; }
 }
+/* MUSIC TOGGLE */
+.music-toggle {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 9999;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: rgba(255,255,255,0.6);
+}
+.music-toggle:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  transform: scale(1.1);
+}
+.music-toggle.playing .music-bars span {
+  animation: musicBar 0.8s ease-in-out infinite;
+}
+.music-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 16px;
+}
+.music-bars span {
+  display: block;
+  width: 3px;
+  background: currentColor;
+  border-radius: 1px;
+  height: 4px;
+  transition: height 0.2s;
+}
+.music-bars span:nth-child(1) { height: 6px; animation-delay: 0s; }
+.music-bars span:nth-child(2) { height: 10px; animation-delay: 0.15s; }
+.music-bars span:nth-child(3) { height: 14px; animation-delay: 0.3s; }
+.music-bars span:nth-child(4) { height: 8px; animation-delay: 0.45s; }
+@keyframes musicBar {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+.music-toggle:not(.playing) .music-bars span {
+  height: 4px !important;
+  animation: none !important;
+}
+@media (max-width: 767px) {
+  .music-toggle { bottom: 80px; left: 16px; width: 38px; height: 38px; }
+}
 </style>
 </head>
 <body>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="bg-music.mp3" type="audio/mpeg">
+</audio>
+<button class="music-toggle" id="musicToggle" aria-label="Toggle music">
+  <div class="music-bars">
+    <span></span><span></span><span></span><span></span>
+  </div>
+</button>
 
 <!-- CANVASES -->
 <canvas id="starCanvas"></canvas>
@@ -2861,6 +2927,40 @@ document.addEventListener('keydown', e => {
   setTimeout(() => {
     if (el('seatsFill')) el('seatsFill').style.width = pct + '%';
   }, 800);
+})();
+// ─── BACKGROUND MUSIC ─────────────────────────────────────────
+(function(){
+  var audio = document.getElementById('bgMusic');
+  var btn = document.getElementById('musicToggle');
+  if (!audio || !btn) return;
+  audio.volume = 0.15;
+  var isPlaying = false;
+
+  btn.addEventListener('click', function() {
+    if (isPlaying) {
+      audio.pause();
+      btn.classList.remove('playing');
+      isPlaying = false;
+    } else {
+      audio.play().then(function() {
+        btn.classList.add('playing');
+        isPlaying = true;
+      }).catch(function(){});
+    }
+  });
+
+  // Auto-play on first user interaction
+  var autoStarted = false;
+  function tryAutoStart() {
+    if (autoStarted) return;
+    autoStarted = true;
+    audio.play().then(function() {
+      btn.classList.add('playing');
+      isPlaying = true;
+    }).catch(function(){ autoStarted = false; });
+  }
+  document.addEventListener('click', tryAutoStart, { once: true });
+  document.addEventListener('scroll', tryAutoStart, { once: true });
 })();
 </script>
 </body>
