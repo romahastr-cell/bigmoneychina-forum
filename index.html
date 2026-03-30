@@ -2181,7 +2181,7 @@ footer {
 
       <!-- Day 1 -->
       <div class="acc-item" id="acc-1">
-        <div class="acc-header" onclick="toggleAcc('acc-1')" aria-expanded="false" role="button" tabindex="0">
+        <div class="acc-header"  aria-expanded="false" role="button" tabindex="0">
           <span class="acc-day-badge">День 1</span>
           <div class="acc-header-info">
             <div class="acc-date">21 апреля 2026, вторник · 11:00 МСК</div>
@@ -2212,7 +2212,7 @@ footer {
 
       <!-- Day 2 -->
       <div class="acc-item" id="acc-2">
-        <div class="acc-header" onclick="toggleAcc('acc-2')" aria-expanded="false" role="button" tabindex="0">
+        <div class="acc-header"  aria-expanded="false" role="button" tabindex="0">
           <span class="acc-day-badge">День 2</span>
           <div class="acc-header-info">
             <div class="acc-date">22 апреля 2026, среда · 11:00 МСК</div>
@@ -2243,7 +2243,7 @@ footer {
 
       <!-- Day 3 -->
       <div class="acc-item" id="acc-3">
-        <div class="acc-header" onclick="toggleAcc('acc-3')" aria-expanded="false" role="button" tabindex="0">
+        <div class="acc-header"  aria-expanded="false" role="button" tabindex="0">
           <span class="acc-day-badge">День 3</span>
           <div class="acc-header-info">
             <div class="acc-date">23 апреля 2026, четверг · 11:00 МСК</div>
@@ -3232,7 +3232,7 @@ footer {
     const totalSeats = 3000;
     const takenSeats = Math.round((pct / 100) * totalSeats);
     const leftSeats  = totalSeats - takenSeats;
-    if (bar) bar.style.width = pct + '%';
+    if (bar) setTimeout(() => { bar.style.width = pct + '%'; }, 500);
     if (takenEl) takenEl.textContent = takenSeats.toLocaleString('ru');
 
     // Also update final CTA seats remaining
@@ -3334,7 +3334,18 @@ footer {
      ========================================================= */
   (function() {
     const slides = document.querySelectorAll('.speaker-slide');
-    const dots   = document.querySelectorAll('.sp-dot');
+    const dotsContainer = document.getElementById('carousel-dots');
+    // Build dots dynamically
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, i) => {
+        const d = document.createElement('div');
+        d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        d.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); });
+        dotsContainer.appendChild(d);
+      });
+    }
+    const dots = document.querySelectorAll('.carousel-dot');
     let current  = 0;
     let autoTimer = null;
 
@@ -3353,8 +3364,8 @@ footer {
       clearInterval(autoTimer);
     }
 
-    const prevBtn = document.getElementById('sp-prev');
-    const nextBtn = document.getElementById('sp-next');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
     if (prevBtn) prevBtn.addEventListener('click', () => { stopAuto(); goTo(current - 1); startAuto(); });
     if (nextBtn) nextBtn.addEventListener('click', () => { stopAuto(); goTo(current + 1); startAuto(); });
     dots.forEach((dot, i) => dot.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); }));
