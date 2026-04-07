@@ -71,6 +71,11 @@ async def register_form(db: AsyncSession = Depends(get_db)):
     .secure{{color:#94A3B8;font-size:12px;text-align:center;margin-top:14px}}
     .divider{{height:1px;background:#F1F5F9;margin:20px 0}}
     .error{{color:#DC2626;font-size:13px;margin-top:4px;display:none}}
+    .consent-block {{ margin: 16px 0; }}
+    .consent-label {{ display: flex; gap: 10px; align-items: flex-start; cursor: pointer; color: #475569; font-size: 14px; line-height: 1.5; }}
+    .consent-label input[type="checkbox"] {{ width: 18px; height: 18px; min-width: 18px; margin-top: 2px; accent-color: #0891B2; cursor: pointer; }}
+    .consent-label a {{ color: #0891B2; text-decoration: underline; }}
+    .submit-btn:disabled {{ opacity: 0.45; cursor: not-allowed; transform: none !important; box-shadow: none !important; }}
   </style>
 </head>
 <body>
@@ -114,7 +119,16 @@ async def register_form(db: AsyncSession = Depends(get_db)):
       <input type="text" id="telegram_login" name="telegram_login" placeholder="@username">
     </div>
 
-    <button type="submit" class="submit-btn" id="submitBtn">
+    <div class="divider"></div>
+
+    <div class="consent-block">
+      <label class="consent-label">
+        <input type="checkbox" id="consent" name="consent" required onchange="document.getElementById('submitBtn').disabled=!this.checked">
+        <span>Я ознакомлен(а) и согласен(а) с <a href="https://bigmoneychina.tech/offer.html" target="_blank">договором оферты</a> и <a href="https://bigmoneychina.tech/privacy.html" target="_blank">политикой конфиденциальности</a></span>
+      </label>
+    </div>
+
+    <button type="submit" class="submit-btn" id="submitBtn" disabled>
       Перейти к оплате →
     </button>
     <p class="secure">🔒 Безопасная оплата через Robokassa · SSL-шифрование</p>
