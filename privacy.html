@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика конфиденциальности — BigMoneyChina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary: #164E63;
+            --primary-light: #1e6a85;
+            --primary-bg: #f0f7fa;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --bg: #f8fafb;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --radius: 12px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Main */
+        .main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .page-meta {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        /* TOC */
+        .toc {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            margin-bottom: 36px;
+        }
+
+        .toc-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .toc ol {
+            list-style: none;
+            counter-reset: toc-counter;
+            padding: 0;
+        }
+
+        .toc li {
+            counter-increment: toc-counter;
+            margin-bottom: 6px;
+        }
+
+        .toc li::before {
+            content: counter(toc-counter) ".";
+            color: var(--primary);
+            font-weight: 600;
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .toc a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .toc a:hover {
+            color: var(--primary);
+        }
+
+        /* Card sections */
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            margin-bottom: 20px;
+        }
+
+        .section-number {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            font-size: 13px;
+            font-weight: 600;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            border-radius: 8px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            margin-bottom: 12px;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card ul, .card ol {
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+
+        .card li {
+            margin-bottom: 6px;
+        }
+
+        .card a {
+            color: var(--primary);
+            text-decoration: underline;
+            text-decoration-color: rgba(22, 78, 99, 0.3);
+            text-underline-offset: 2px;
+        }
+
+        .card a:hover {
+            text-decoration-color: var(--primary);
+        }
+
+        .highlight-box {
+            background: var(--primary-bg);
+            border-left: 3px solid var(--primary);
+            border-radius: 0 8px 8px 0;
+            padding: 14px 18px;
+            margin: 16px 0;
+            font-size: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border);
+            background: var(--white);
+            padding: 24px;
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Print styles */
+        @media print {
+            .header {
+                position: static;
+                border-bottom: 2px solid #000;
+            }
+
+            .back-link {
+                display: none;
+            }
+
+            body {
+                background: #fff;
+                font-size: 12pt;
+                line-height: 1.5;
+            }
+
+            .main {
+                padding: 20px 0;
+            }
+
+            .card {
+                border: 1px solid #ccc;
+                box-shadow: none;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .toc {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .footer {
+                border-top: 1px solid #000;
+            }
+
+            a {
+                color: #000 !important;
+                text-decoration: underline;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page-title {
+                font-size: 24px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .toc {
+                padding: 18px 20px;
+            }
+
+            .header-inner {
+                padding: 12px 16px;
+            }
+
+            .main {
+                padding: 24px 16px 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <a href="https://bigmoneychina.tech" class="logo">BigMoneyChina</a>
+        <a href="https://bigmoneychina.tech" class="back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+            На главную
+        </a>
+    </div>
+</header>
+
+<main class="main">
+    <h1 class="page-title">Политика конфиденциальности</h1>
+    <p class="page-meta">Дата актуализации: 7 апреля 2026 г.</p>
+
+    <nav class="toc">
+        <div class="toc-title">Содержание</div>
+        <ol>
+            <li><a href="#general">Общие положения</a></li>
+            <li><a href="#operator">Сведения об операторе</a></li>
+            <li><a href="#data">Перечень собираемых данных</a></li>
+            <li><a href="#purposes">Цели обработки персональных данных</a></li>
+            <li><a href="#legal-basis">Правовые основания обработки</a></li>
+            <li><a href="#consent">Согласие на обработку персональных данных</a></li>
+            <li><a href="#storage">Сроки хранения данных</a></li>
+            <li><a href="#rights">Права субъекта персональных данных</a></li>
+            <li><a href="#cookies">Файлы cookie</a></li>
+            <li><a href="#third-parties">Передача данных третьим лицам</a></li>
+            <li><a href="#security">Меры по защите данных</a></li>
+            <li><a href="#withdrawal">Порядок отзыва согласия</a></li>
+            <li><a href="#changes">Изменение Политики</a></li>
+            <li><a href="#contacts">Контактная информация</a></li>
+        </ol>
+    </nav>
+
+    <!-- 1 -->
+    <section class="card" id="general">
+        <h2><span class="section-number">1</span>Общие положения</h2>
+        <p>Настоящая Политика конфиденциальности (далее — «Политика») определяет порядок сбора, хранения, обработки, использования и защиты персональных данных пользователей сайта <a href="https://bigmoneychina.tech">bigmoneychina.tech</a> (далее — «Сайт»).</p>
+        <p>Политика разработана в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных», Федеральным законом от 13.03.2006 № 38-ФЗ «О рекламе», а также иными нормативно-правовыми актами Российской Федерации в области персональных данных.</p>
+        <p>Используя Сайт, оформляя заказ или предоставляя свои персональные данные любым иным способом, Пользователь выражает согласие с условиями настоящей Политики.</p>
+    </section>
+
+    <!-- 2 -->
+    <section class="card" id="operator">
+        <h2><span class="section-number">2</span>Сведения об операторе</h2>
+        <p>Оператор персональных данных:</p>
+        <div class="highlight-box">
+            <strong>ИП Неретина Людмила Васильевна</strong><br>
+            ИНН: 381202285543<br>
+            ОГРНИП: 323385000090252<br>
+            Email: <a href="mailto:info@bigmoneychina.tech">info@bigmoneychina.tech</a><br>
+            Сайт: <a href="https://bigmoneychina.tech">https://bigmoneychina.tech</a>
+        </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="card" id="data">
+        <h2><span class="section-number">3</span>Перечень собираемых данных</h2>
+        <p>Оператор может собирать следующие персональные данные Пользователя:</p>
+        <ul>
+            <li>Фамилия, имя, отчество (ФИО);</li>
+            <li>Адрес электронной почты (email);</li>
+            <li>Номер телефона;</li>
+            <li>Имя пользователя в Telegram (Telegram username);</li>
+            <li>Информация о платежах (дата, сумма, статус оплаты; данные банковской карты не хранятся Оператором).</li>
+        </ul>
+        <p>Также автоматически собираются технические данные: IP-адрес, тип браузера, параметры устройства, данные файлов cookie, информация о посещённых страницах.</p>
+    </section>
+
+    <!-- 4 -->
+    <section class="card" id="purposes">
+        <h2><span class="section-number">4</span>Цели обработки персональных данных</h2>
+        <p>Персональные данные обрабатываются в следующих целях:</p>
+        <ul>
+            <li>Организация участия Пользователя в онлайн-форуме «Технологии и Бизнес»;</li>
+            <li>Идентификация Пользователя при оформлении заказа;</li>
+            <li>Направление уведомлений, связанных с проведением форума (расписание, ссылки на эфиры, организационная информация);</li>
+            <li>Осуществление email-рассылок информационного и рекламного характера (с возможностью отписки);</li>
+            <li>Обработка платежей и возвратов;</li>
+            <li>Связь с Пользователем для решения вопросов, связанных с оказанием услуг;</li>
+            <li>Улучшение качества работы Сайта и оказываемых услуг;</li>
+            <li>Выполнение требований законодательства Российской Федерации.</li>
+        </ul>
+    </section>
+
+    <!-- 5 -->
+    <section class="card" id="legal-basis">
+        <h2><span class="section-number">5</span>Правовые основания обработки</h2>
+        <p>Обработка персональных данных осуществляется на следующих основаниях:</p>
+        <ul>
+            <li>Согласие субъекта персональных данных (п. 1 ч. 1 ст. 6 Федерального закона № 152-ФЗ);</li>
+            <li>Исполнение договора, стороной которого является субъект персональных данных (п. 5 ч. 1 ст. 6 Федерального закона № 152-ФЗ);</li>
+            <li>Выполнение возложенных на Оператора обязанностей в соответствии с законодательством РФ (п. 2 ч. 1 ст. 6 Федерального закона № 152-ФЗ).</li>
+        </ul>
+    </section>
+
+    <!-- 6 -->
+    <section class="card" id="consent">
+        <h2><span class="section-number">6</span>Согласие на обработку персональных данных</h2>
+        <div class="highlight-box">
+            Оформляя заказ на Сайте, заполняя форму обратной связи или подписываясь на рассылку, Пользователь даёт своё добровольное, информированное и осознанное согласие на обработку персональных данных в соответствии с настоящей Политикой.
+        </div>
+        <p>Согласие предоставляется на обработку данных, указанных в разделе 3 настоящей Политики, для целей, указанных в разделе 4.</p>
+        <p>Согласие действует с момента его предоставления и до момента отзыва, осуществляемого в порядке, предусмотренном разделом 12 настоящей Политики.</p>
+        <p>Пользователь вправе отозвать согласие на обработку персональных данных в любое время. Отзыв согласия не влечёт прекращения обработки данных, необходимой для исполнения договора или требований законодательства.</p>
+    </section>
+
+    <!-- 7 -->
+    <section class="card" id="storage">
+        <h2><span class="section-number">7</span>Сроки хранения данных</h2>
+        <p>Персональные данные хранятся в течение <strong>3 (трёх) лет</strong> с момента последнего взаимодействия Пользователя с Оператором (последний вход на Сайт, последний заказ, последнее обращение).</p>
+        <p>По истечении указанного срока данные подлежат уничтожению, за исключением случаев, когда более длительный срок хранения предусмотрен законодательством Российской Федерации (например, для целей бухгалтерского учёта).</p>
+        <p>При отзыве согласия данные удаляются в срок не более 30 (тридцати) рабочих дней, если отсутствуют иные правовые основания для их дальнейшей обработки.</p>
+    </section>
+
+    <!-- 8 -->
+    <section class="card" id="rights">
+        <h2><span class="section-number">8</span>Права субъекта персональных данных</h2>
+        <p>В соответствии с Федеральным законом № 152-ФЗ Пользователь имеет право:</p>
+        <ul>
+            <li><strong>На доступ</strong> — получить информацию об обработке своих персональных данных, включая перечень данных, цели обработки, сроки хранения;</li>
+            <li><strong>На исправление</strong> — потребовать уточнения, дополнения или исправления своих персональных данных, если они являются неполными, неточными или устаревшими;</li>
+            <li><strong>На удаление</strong> — потребовать уничтожения персональных данных, если они обрабатываются незаконно или более не являются необходимыми для заявленных целей;</li>
+            <li><strong>На отзыв согласия</strong> — отозвать ранее данное согласие на обработку персональных данных;</li>
+            <li><strong>На обжалование</strong> — обратиться в Роскомнадзор (Федеральная служба по надзору в сфере связи, информационных технологий и массовых коммуникаций) в случае нарушения прав субъекта.</li>
+        </ul>
+        <p>Для реализации указанных прав необходимо направить запрос на адрес электронной почты: <a href="mailto:info@bigmoneychina.tech">info@bigmoneychina.tech</a>.</p>
+        <p>Оператор обязуется рассмотреть запрос в течение 30 (тридцати) дней с момента получения.</p>
+    </section>
+
+    <!-- 9 -->
+    <section class="card" id="cookies">
+        <h2><span class="section-number">9</span>Файлы cookie</h2>
+        <p>Сайт использует файлы cookie для обеспечения корректной работы, повышения удобства использования и сбора статистики посещаемости.</p>
+        <p>Файлы cookie — это небольшие текстовые файлы, которые сохраняются на устройстве Пользователя при посещении Сайта. Они могут включать:</p>
+        <ul>
+            <li>Технические cookie — необходимы для работы Сайта;</li>
+            <li>Аналитические cookie — помогают анализировать использование Сайта и улучшать его работу.</li>
+        </ul>
+        <p>Пользователь может отключить использование cookie в настройках своего браузера. Отключение cookie может привести к ограничению функциональности Сайта.</p>
+    </section>
+
+    <!-- 10 -->
+    <section class="card" id="third-parties">
+        <h2><span class="section-number">10</span>Передача данных третьим лицам</h2>
+        <p>Оператор может передавать персональные данные следующим третьим лицам:</p>
+        <ul>
+            <li><strong>Robokassa</strong> (ООО «Робокасса») — платёжный оператор, осуществляющий обработку платежей. При оплате заказа данные передаются на платёжную страницу Robokassa для проведения транзакции. Оператор не хранит данные банковских карт Пользователей;</li>
+            <li><strong>Telegram</strong> (Telegram Messenger Inc.) — для коммуникации с Пользователем через мессенджер, в том числе при обращении через Telegram-бот <a href="https://t.me/ciberdelobot">@ciberdelobot</a>.</li>
+        </ul>
+        <p>Оператор не продаёт и не передаёт персональные данные Пользователей иным третьим лицам, за исключением случаев, предусмотренных законодательством Российской Федерации (по запросу уполномоченных государственных органов).</p>
+    </section>
+
+    <!-- 11 -->
+    <section class="card" id="security">
+        <h2><span class="section-number">11</span>Меры по защите данных</h2>
+        <p>Оператор принимает необходимые и достаточные организационные и технические меры для защиты персональных данных Пользователей от неправомерного доступа, уничтожения, изменения, блокирования, копирования, распространения, а также от иных неправомерных действий. В частности:</p>
+        <ul>
+            <li>Использование защищённого соединения (SSL/TLS) при передаче данных;</li>
+            <li>Ограничение доступа к персональным данным уполномоченными лицами;</li>
+            <li>Регулярное обновление программного обеспечения.</li>
+        </ul>
+    </section>
+
+    <!-- 12 -->
+    <section class="card" id="withdrawal">
+        <h2><span class="section-number">12</span>Порядок отзыва согласия</h2>
+        <p>Для отзыва согласия на обработку персональных данных Пользователю необходимо направить письменное заявление на адрес электронной почты: <a href="mailto:info@bigmoneychina.tech">info@bigmoneychina.tech</a>.</p>
+        <p>В заявлении необходимо указать:</p>
+        <ul>
+            <li>ФИО;</li>
+            <li>Адрес электронной почты, указанный при регистрации/оформлении заказа;</li>
+            <li>Требование об отзыве согласия на обработку персональных данных.</li>
+        </ul>
+        <p>Оператор прекращает обработку персональных данных в течение 30 (тридцати) дней с момента получения заявления, за исключением данных, обработка которых необходима для исполнения обязательств по договору или требований законодательства.</p>
+    </section>
+
+    <!-- 13 -->
+    <section class="card" id="changes">
+        <h2><span class="section-number">13</span>Изменение Политики</h2>
+        <p>Оператор вправе вносить изменения в настоящую Политику конфиденциальности. Актуальная редакция размещается на Сайте по адресу: <a href="https://bigmoneychina.tech/privacy.html">bigmoneychina.tech/privacy.html</a>.</p>
+        <p>Продолжение использования Сайта после внесения изменений означает принятие Пользователем новой редакции Политики.</p>
+    </section>
+
+    <!-- 14 -->
+    <section class="card" id="contacts">
+        <h2><span class="section-number">14</span>Контактная информация</h2>
+        <p>По всем вопросам, связанным с обработкой персональных данных, Пользователь может обратиться:</p>
+        <div class="highlight-box">
+            Email: <a href="mailto:info@bigmoneychina.tech">info@bigmoneychina.tech</a><br>
+            Telegram: <a href="https://t.me/ciberdelobot">@ciberdelobot</a><br>
+            Сайт: <a href="https://bigmoneychina.tech">https://bigmoneychina.tech</a>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        &copy; 2026 ИП Неретина Людмила Васильевна. Все права защищены.
+    </div>
+</footer>
+
+</body>
+</html>
