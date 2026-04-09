@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты и реквизиты | Big Money China</title>
+    <meta name="description" content="Контакты и реквизиты организатора форума «Технологии и Бизнес» — ИП Неретина Людмила Васильевна. ИНН 381202285543. Служба поддержки: info@bigmoneychina.tech">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bigmoneychina.tech/contacts.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-dark:       #060f1e;
+            --bg-card:       #0d1f35;
+            --bg-card-hover: #112540;
+            --teal:          #2dd4bf;
+            --teal-dim:      #14b8a6;
+            --teal-glow:     rgba(45, 212, 191, 0.15);
+            --text:          #e2e8f0;
+            --text-muted:    #94a3b8;
+            --text-soft:     #cbd5e1;
+            --border:        rgba(45, 212, 191, 0.15);
+            --border-subtle: rgba(255, 255, 255, 0.07);
+            --radius:        12px;
+            --radius-sm:     8px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            background: rgba(6, 15, 30, 0.95);
+            border-bottom: 1px solid var(--border-subtle);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--teal);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover { color: var(--teal); }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ── MAIN ── */
+        .main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            margin-bottom: 48px;
+        }
+
+        .page-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 12px;
+        }
+
+        .page-title {
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 14px;
+        }
+
+        .page-subtitle {
+            font-size: 17px;
+            color: var(--text-muted);
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* ── CARDS ── */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius);
+            padding: 32px 36px;
+            margin-bottom: 24px;
+            transition: border-color 0.2s;
+        }
+
+        .card:hover {
+            border-color: var(--border);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            background: var(--teal-glow);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--teal);
+        }
+
+        .card-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+
+        .card p {
+            color: var(--text-soft);
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .card p:last-child { margin-bottom: 0; }
+
+        /* ── REQUISITES TABLE ── */
+        .req-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+        }
+
+        .req-table tr {
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .req-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .req-table td {
+            padding: 12px 8px;
+            vertical-align: top;
+        }
+
+        .req-table td:first-child {
+            color: var(--text-muted);
+            font-weight: 500;
+            white-space: nowrap;
+            padding-right: 24px;
+            width: 260px;
+        }
+
+        .req-table td:last-child {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .req-table a {
+            color: var(--teal);
+            text-decoration: none;
+        }
+
+        .req-table a:hover {
+            text-decoration: underline;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--teal-glow);
+            border: 1px solid var(--border);
+            color: var(--teal);
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 6px;
+            padding: 2px 8px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        /* ── SUPPORT GRID ── */
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .support-card {
+            background: rgba(45, 212, 191, 0.05);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 20px 22px;
+            text-decoration: none;
+            transition: background 0.2s, border-color 0.2s;
+            display: block;
+        }
+
+        .support-card:hover {
+            background: var(--teal-glow);
+            border-color: var(--teal-dim);
+        }
+
+        .support-card-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .support-card-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--teal);
+        }
+
+        .support-card-hint {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* ── HIGHLIGHT ── */
+        .highlight-box {
+            background: rgba(45, 212, 191, 0.07);
+            border-left: 3px solid var(--teal);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 16px 20px;
+            margin: 16px 0;
+            font-size: 15px;
+            color: var(--text-soft);
+        }
+
+        .highlight-box strong {
+            color: var(--teal);
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            border-top: 1px solid var(--border-subtle);
+            background: rgba(6, 15, 30, 0.8);
+            padding: 24px;
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .footer-inner a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-inner a:hover { color: var(--teal); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 640px) {
+            .header-inner { padding: 12px 16px; }
+            .main { padding: 32px 16px 60px; }
+            .card { padding: 22px 20px; }
+
+            .req-table td:first-child {
+                width: auto;
+                white-space: normal;
+                display: block;
+                padding-bottom: 2px;
+                padding-right: 0;
+                font-size: 13px;
+            }
+
+            .req-table td:last-child {
+                display: block;
+                padding-top: 0;
+                padding-bottom: 12px;
+            }
+
+            .req-table tr { border-bottom: none; }
+            .req-table tbody tr:not(:last-child) td:last-child { border-bottom: 1px solid var(--border-subtle); }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <a href="https://bigmoneychina.tech" class="logo">BigMoneyChina</a>
+        <a href="https://bigmoneychina.tech" class="back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+            На главную
+        </a>
+    </div>
+</header>
+
+<main class="main">
+
+    <div class="page-hero">
+        <span class="page-label">Контакты и реквизиты</span>
+        <h1 class="page-title">Информация об организаторе</h1>
+        <p class="page-subtitle">Полные сведения об организаторе форума «Технологии и Бизнес», реквизиты, режим работы и контакты службы поддержки.</p>
+    </div>
+
+    <!-- О нас -->
+    <section class="card" id="about">
+        <div class="card-header">
+            <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg>
+            </div>
+            <h2>О нас</h2>
+        </div>
+        <p>Мы — организаторы международного онлайн-форума «Технологии и Бизнес», объединяющего партнёров и предпринимателей в сфере wellness, биохакинга и китайских технологий здоровья.</p>
+        <p>Форум проводится в формате прямых онлайн-трансляций с участием экспертов, предпринимателей и представителей компании Виеда (Whieda). Участники получают актуальные знания о рынке Китая, продуктах на основе терагерцевых технологий, традиционной китайской медицине и построении партнёрского бизнеса.</p>
+        <p>Деятельность осуществляется в соответствии с законодательством Российской Федерации. Все платежи обрабатываются через сертифицированный платёжный сервис Robokassa.</p>
+        <div class="highlight-box">
+            <strong>Ближайший форум:</strong> 21–23 апреля 2026 года, онлайн-формат, вся Россия. Стоимость участия — <strong>501 рубль</strong>. Ссылки на трансляции приходят на email за 30 минут до начала каждого дня.
+        </div>
+    </section>
+
+    <!-- Реквизиты -->
+    <section class="card" id="requisites">
+        <div class="card-header">
+            <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>
+            </div>
+            <h2>Реквизиты</h2>
+        </div>
+        <table class="req-table">
+            <tbody>
+                <tr>
+                    <td>Наименование</td>
+                    <td>ИП Неретина Людмила Васильевна</td>
+                </tr>
+                <tr>
+                    <td>ИНН</td>
+                    <td>381202285543</td>
+                </tr>
+                <tr>
+                    <td>ОГРНИП</td>
+                    <td>323385000090252</td>
+                </tr>
+                <tr>
+                    <td>Режим работы</td>
+                    <td>Пн–Пт, 10:00–18:00 МСК</td>
+                </tr>
+                <tr>
+                    <td>Юридический / фактический адрес</td>
+                    <td>Иркутская область, Россия</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><a href="mailto:info@bigmoneychina.tech">info@bigmoneychina.tech</a></td>
+                </tr>
+                <tr>
+                    <td>Telegram служба поддержки</td>
+                    <td><a href="https://t.me/rezzotech">@rezzotech</a></td>
+                </tr>
+                <tr>
+                    <td>Сайт</td>
+                    <td><a href="https://bigmoneychina.tech">bigmoneychina.tech</a></td>
+                </tr>
+                <tr>
+                    <td>Платёжный агент</td>
+                    <td>Robokassa (ООО «Робокасса») <span class="badge">оплата</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Служба поддержки -->
+    <section class="card" id="support">
+        <div class="card-header">
+            <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h2>Служба поддержки</h2>
+        </div>
+        <p>Мы готовы ответить на все вопросы о форуме, оплате, доступе к трансляциям и возврате средств. Режим работы: <strong>Пн–Пт, 10:00–18:00 МСК</strong>.</p>
+        <div class="support-grid">
+            <a href="mailto:info@bigmoneychina.tech" class="support-card">
+                <div class="support-card-label">Email</div>
+                <div class="support-card-value">info@bigmoneychina.tech</div>
+                <div class="support-card-hint">Ответ в течение 1 рабочего дня</div>
+            </a>
+            <a href="https://t.me/rezzotech" target="_blank" rel="noopener" class="support-card">
+                <div class="support-card-label">Telegram</div>
+                <div class="support-card-value">@rezzotech</div>
+                <div class="support-card-hint">Оперативная поддержка</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Политика возврата -->
+    <section class="card" id="refund">
+        <div class="card-header">
+            <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            </div>
+            <h2>Политика возврата</h2>
+        </div>
+        <div class="highlight-box">
+            <strong>Возврат до начала форума:</strong> подайте заявку до 20 апреля 2026 года включительно — деньги вернём в течение 3 рабочих дней с момента получения заявления. <strong>После начала форума (с 21 апреля) возврат не производится.</strong>
+        </div>
+        <p>Для возврата направьте заявление на <a href="mailto:info@bigmoneychina.tech" style="color:var(--teal)">info@bigmoneychina.tech</a> или в Telegram <a href="https://t.me/rezzotech" style="color:var(--teal)">@rezzotech</a> с указанием ФИО и email, использованного при оплате.</p>
+        <p>Полные условия возврата изложены в <a href="/offer.html" style="color:var(--teal)">Договоре публичной оферты</a>, раздел 9.</p>
+    </section>
+
+    <!-- Документы -->
+    <section class="card" id="docs">
+        <div class="card-header">
+            <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <h2>Правовые документы</h2>
+        </div>
+        <p>Все юридически значимые документы доступны на сайте в открытом доступе:</p>
+        <ul style="list-style:none;padding:0;margin-top:8px;display:flex;flex-direction:column;gap:10px">
+            <li>
+                <a href="/offer.html" style="display:inline-flex;align-items:center;gap:8px;color:var(--teal);text-decoration:none;font-weight:500;font-size:15px">
+                    <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    Договор публичной оферты
+                </a>
+            </li>
+            <li>
+                <a href="/privacy.html" style="display:inline-flex;align-items:center;gap:8px;color:var(--teal);text-decoration:none;font-weight:500;font-size:15px">
+                    <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Политика конфиденциальности (152-ФЗ)
+                </a>
+            </li>
+        </ul>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <p>&copy; 2026 ИП Неретина Л.В. &nbsp;·&nbsp; ИНН 381202285543 &nbsp;·&nbsp; Иркутская область, Россия</p>
+        <p style="margin-top:8px">
+            <a href="https://bigmoneychina.tech">На главную</a>
+            &nbsp;|&nbsp;
+            <a href="/offer.html">Оферта</a>
+            &nbsp;|&nbsp;
+            <a href="/privacy.html">Конфиденциальность</a>
+            &nbsp;|&nbsp;
+            <a href="mailto:info@bigmoneychina.tech">info@bigmoneychina.tech</a>
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>
