@@ -1,11 +1,54 @@
 User-agent: *
 Allow: /
-Sitemap: https://bigmoneychina.tech/sitemap.xml
-Host: https://bigmoneychina.tech
+
+# AI Search Crawlers - EXPLICITLY ALLOWED
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
 
 User-agent: Googlebot
 Allow: /
 
-User-agent: Yandex
+User-agent: Bingbot
 Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: AppleBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: FacebookExternalHit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+Sitemap: https://bigmoneychina.tech/sitemap.xml
 Host: https://bigmoneychina.tech
